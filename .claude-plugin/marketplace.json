@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-code-system-pack",
+  "owner": {
+    "name": "Florent Maisoncelle"
+  },
+  "metadata": {
+    "description": "Entretenir le système d'un agent — ses règles, ses compétences, sa documentation — au lieu de le laisser gonfler.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-system-pack",
+      "source": "./",
+      "description": "Cinq gestes : capitaliser une leçon, mesurer le système, écrire une règle qui porte son contrôle, contrôler une compétence, propager un changement partout.",
+      "category": "productivity"
+    }
+  ]
+}
