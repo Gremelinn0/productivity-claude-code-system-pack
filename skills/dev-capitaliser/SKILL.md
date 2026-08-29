@@ -25,6 +25,20 @@ remesure ce qui était déjà mesuré.
 
 Cette compétence ne remplace aucune méthode. Elle fait le rangement que personne ne fait.
 
+## Le passage de fin — même quand il n'y a rien à écrire
+
+Toute tâche terminée passe ici, **plans compris**. Le verdict est explicite :
+
+- `ÉCRIT` si un plan réutilisable, un fait mesuré, une décision avec sa raison, une option refusée,
+  un piège payé, une méthode réussie, une frontière d'owner ou un contrôle décidable mérite de
+  rejoindre la compétence propriétaire ;
+- `RIEN`, avec une raison courte, si la session n'a produit qu'un statut temporaire, une intuition
+  non vérifiée, un récit ou une reformulation déjà présente.
+
+Forcer une écriture à chaque passage créerait du bruit ; sauter silencieusement le passage rendrait
+le rituel invérifiable. L'unité reste **une compétence et ses tiroirs existants**, jamais un rapport
+de session ajouté à côté.
+
 ## Deux natures de fait, un seul geste
 
 | Nature | Exemple | Sans elle |
@@ -138,6 +152,12 @@ On ne **fabrique** pas du raisonnement qui n'a pas eu lieu : on **rapatrie** cel
 `AUCUN raisonnement gardé à ce jour`, et la prochaine session sait qu'elle est la première au lieu
 de chercher.
 
+Avant une famille entière, convertir **trois pilotes de natures différentes** : un owner `dev-*`,
+un owner `test-*` et une porte `router-*`. Les trois doivent rendre retrouvables les mêmes huit
+réponses : frontmatter utile, lien Dev/Test/QA, problème résolu, stratégie, étapes et tiroirs,
+décisions et rejets, frontières, preuves restantes. La famille ne part qu'après un contrôle de
+non-perte réussi **et** un témoin saboté qui échoue réellement.
+
 Déroulé complet et gabarit du bloc : [`references/raisonnement.md`](references/raisonnement.md).
 
 ## Cinq interdits, chacun payé
@@ -167,6 +187,7 @@ garantie qu'on lira la mauvaise.
   `AUCUN raisonnement gardé à ce jour`. Un silence ici est le seul interdit.
 - Le détail est dans le fichier de sa nature ; le `SKILL.md` a **baissé** ou n'a pas monté.
 - La non-perte est **prouvée** contre l'historique, avec son témoin positif.
+- Une passe de famille a commencé par trois pilotes représentatifs et son contrôle a vu un sabotage.
 - Ce qui dépasse le sujet est **au registre**, avec un propriétaire retrouvable.
 - Ce que ça rend **faux ailleurs** est corrigé — ou j'ai vérifié que rien ne devient faux, et je le
   dis. Un silence ici laisse des cartes qui mentent.

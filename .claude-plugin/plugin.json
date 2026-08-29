@@ -1,7 +1,7 @@
 {
   "name": "claude-code-system-pack",
   "description": "Cinq compétences pour entretenir le système d'un agent — ses règles, ses compétences, sa documentation — au lieu de le laisser gonfler. Capitaliser une leçon chez son propriétaire, mesurer le système avant de le juger, écrire une règle qui porte son contrôle, contrôler une compétence sur sept axes, et propager un changement sur toutes les surfaces qui disaient l'inverse.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Florent Maisoncelle"
   },

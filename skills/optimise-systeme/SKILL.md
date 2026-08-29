@@ -273,6 +273,11 @@ arbitrages écrits, **puis attaquer son propre plan** avant de graver. Un plan q
 Une chose vraie partout monte ; une chose vraie ici seulement reste ici. Au doute, on remonte : mal
 placer bas coûte du temps à tout recréer, un cran trop haut coûte quelques jetons.
 
+Pour une compétence existante ou une famille, entretenir l'owner en place : même squelette
+sémantique, trois pilotes représentatifs (`dev-*`, `test-*`, `router-*`) avant le lot, snapshot puis
+preuve de non-perte capable d'échouer sur une copie amputée. Créer ou refondre structurellement un
+owner reste un autre geste ; une passe d'entretien ne fabrique pas une compétence « mémoire ».
+
 ### 7 · PROPAGER + RE-MESURER
 
 Corriger **toutes** les surfaces que le changement rend fausses, puis relancer la mesure de l'étape 3.
