@@ -2,16 +2,20 @@
 name: clean-rules-cleanup
 description: >-
   L'outil unique pour créer, modifier, supprimer et réorganiser les règles d'un agent — aucune
-  écriture de règle ne se fait sans passer par ici. À invoquer AVANT toute édition d'un fichier de
-  règles (ajouter, graver, compresser, nettoyer, déplacer vers une compétence ou un hook), et pour
-  auditer un parc de compétences devenu trop gros. Trois modes : la passe de nettoyage en 4 phases,
-  l'audit du parc de compétences, et la création guidée d'une règle isolée. Triggers : « ajoute une
-  règle », « grave cette règle », « nettoie les règles », « compresse », « réorganise le fichier de
-  règles », « optimise les tokens », « audit des compétences », « renomme une compétence »,
-  « on accumule trop de règles ».
+  écriture de règle ne se fait sans passer par ici. L'invoquer avant toute édition ou demande
+  « ajoute, grave, nettoie, compresse ou optimise les règles », et pour auditer un parc de
+  compétences. Au lancement, il rend le corpus caché navigable pour l'utilisateur : ce qui aide,
+  ce qui gêne, ce qui est toujours chargé et où gagner réellement de la place. Modes : nettoyage
+  en 4 phases, audit du parc, création guidée d'une règle.
 ---
 
 # clean-rules-cleanup — écrire, alléger et ranger les règles
+
+## Au lancement — rendre le corpus navigable
+
+Avant toute modification, commencer par une carte courte pour l'utilisateur, jamais par l'inventaire interne exhaustif : **où je regarde** (chemins cliquables et couches) · **ce qui aide** · **ce qui gêne** · **où gagner de la place** (1 à 3 gestes réversibles, gain mesuré et contrepartie). Distinguer ce qui est chargé à chaque session de ce qui ne l'est qu'à la demande : déplacer une règle ciblée ne libère pas le même budget qu'alléger une règle toujours chargée.
+
+La carte sert à naviguer dans l'inventaire des Phases 1 ; elle ne le remplace pas et n'est pas un gate d'approbation. Nettoyage autorisé → poursuivre le réversible ; audit seul → s'arrêter après les recommandations. **Contrôle** : l'utilisateur peut-il répondre depuis l'ouverture seule « qu'est-ce qui me gouverne, qu'est-ce qui me coûte, que puis-je déplacer sans casse » ? Non → la Phase 1 n'a pas commencé.
 
 ## §1 — Doctrine : le contexte est un budget
 
@@ -118,7 +122,7 @@ vient d'alléger.*
 
 ### Phase 1 — Regroupement thématique (cartographie, zéro modification)
 
-Scanner le fichier entier. Lister **chaque** règle avec son numéro de ligne. Classer par thème.
+Rendre d'abord la carte utilisateur obligatoire définie au lancement. Puis scanner le fichier entier. Lister **chaque** règle avec son numéro de ligne. Classer par thème.
 Sortie : une table `règle | ligne | thème`. **Aucune modification à cette phase.**
 
 **L'ordre est non négociable : du plus LARGE au plus SPÉCIFIQUE.**
@@ -174,7 +178,7 @@ suppression.*
 
 Même structure en 4 phases, appliquée à un parc de compétences devenu trop gros ou incohérent.
 
-**Phase 1 — Inventaire complet** : chaque compétence, son niveau, son propriétaire, sa taille, qui
+**Phase 1 — Carte utilisateur, puis inventaire complet** : rendre d'abord la carte définie au lancement ; ensuite chaque compétence, son niveau, son propriétaire, sa taille, qui
 la cite, qui elle cite.
 
 **Phase 2 — Une décision par compétence** : garder · renommer · fusionner avec une autre · déplacer
