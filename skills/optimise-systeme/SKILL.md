@@ -33,154 +33,21 @@ description: >-
 
 ## Les trois faux remèdes
 
-Ils ont un mécanisme commun, et c'est lui qu'il faut reconnaître : **ils consomment le problème sans
-le résoudre**. Gratuits à écrire, visibles dans le diff, ils donnent l'impression que c'est réglé —
-donc le vrai correctif n'est jamais fait.
+Ils ont un mécanisme commun : ils consomment le problème sans le résoudre.
 
-### N°1 — « j'ajoute une ligne dans le routeur » ne répare jamais une découvrabilité
+1. **Découvrabilité** : une ligne de plus dans un routeur n'est jamais le seul correctif. Agir sur
+   ce que l'utilisateur touche : nom, description, déclencheurs et nombre de portes concurrentes.
 
-Quelqu'un ne trouve pas une compétence. Le réflexe immédiat, et il est presque toujours faux, est
-d'ajouter une ligne dans le routeur, la carte, l'index.
+2. **Propriété** : noter un sujet dans un registre ne le place pas. L'owner doit le retrouver dans
+   son propre contrat ; s'il risque de ne jamais être invoqué, un index ou un moment de revue doit
+   le rappeler sans devenir du papier peint.
 
-**Le cas mesuré, chiffré des deux côtés.** Une porte de domaine introuvable. Remède posé : une ligne
-dans la table du routeur racine, plus un bandeau — avec la décision explicite de **ne pas** renommer,
-au motif de 108 références. **Le lendemain, la même porte est reperdue.** Durée de vie du remède :
-**24 heures**.
+3. **Cliquet** : avant de figer un nombre, demander s'il change sans action humaine. Population ou
+   horloge mobiles exigent un arriéré nommé qui ne peut que rétrécir, et une paire de sabotages :
+   un cas neuf fautif rougit, plusieurs cas neufs conformes restent verts.
 
-Ce que la mesure disait, et qu'une ligne ne pouvait pas changer :
-
-| Compétence | Fichiers qui la citent |
-|---|---:|
-| la plomberie du domaine | **105** |
-| la porte du domaine | **60** |
-
-**Une porte citée deux fois moins que son propre enfant n'a pas un problème d'annonce : elle a un
-problème de NOM et de DÉCLENCHEURS.** Les deux se disputaient les mêmes déclencheurs, et le nom ne
-disait pas « porte ». Ajouter une 375ᵉ ligne à un routeur que personne ne relit ne déplace aucun de
-ces deux chiffres. Le vrai correctif a été le **renommage** — 146 réécritures, zéro référence morte.
-
-**Le contrôle, avant de « documenter » une découvrabilité, en une question** : *est-ce que je change
-quelque chose que la personne TOUCHE — le nom qu'elle tape, la description qui décide de
-l'invocation, le nombre de noms qu'elle doit distinguer ? Ou est-ce que j'ajoute du texte dans un
-fichier qu'elle ne rouvrira pas ?*
-
-- ❌ Une ligne de plus dans un routeur **comme seul remède** · un bandeau « la compétence existe » ·
-  un renvoi croisé de plus. Ces trois-là sont des **compléments**, jamais le correctif.
-- ✅ **Renommer** · **réécrire les déclencheurs** pour que la porte gagne contre ses propres enfants ·
-  **réduire le nombre de noms** à distinguer.
-- 🔁 **Un remède reposé une deuxième fois est la preuve qu'il ne marchait pas.** *Sa répétition EST la
-  mesure de son échec.*
-
-⚠️ **Corollaire, dans les deux sens** : une décision gravée la veille se **rouvre** quand son remède
-est mesuré inefficace — ce n'est pas de l'instabilité, c'est l'arrivée d'un fait nouveau. Ce qui
-serait de l'instabilité : rouvrir **sans** mesure. On écrit donc toujours **ce qui a échoué et
-combien de temps ça a tenu**, jamais seulement la nouvelle décision.
-
-### N°2 — « je note le sujet quelque part » n'est pas le PLACER
-
-Un sujet sans maison apparaît. Le réflexe est d'ouvrir un **registre**, une liste « points ouverts »,
-un tableau de suivi. C'est gratuit, ça se voit, et ça donne l'impression que le sujet est pris en
-charge.
-
-**Le vrai geste, et c'est LE livrable de la passe** : le sujet **entre dans le périmètre d'une
-compétence propriétaire** — écrit **chez elle**, dans ses termes, de sorte que **toute passe future
-de cette compétence le relise et le fasse avancer**. On ne dépose pas une note à côté d'un
-propriétaire : on **améliore le propriétaire** pour qu'il devienne meilleur sur cette tâche-là.
-
-Une porte peut ensuite tenir une table de routage — qui nomme le propriétaire et ne stocke rien
-d'autre — mais elle vient **après** le placement, jamais à sa place.
-
-**Le contrôle, en une question** : *si cette compétence propriétaire est invoquée demain sans que
-personne ne se souvienne d'aujourd'hui, retrouve-t-elle le sujet dans son propre fichier ?* Non →
-ce n'est pas placé, c'est stocké ailleurs.
-
-⚠️ **Et « personne ne le prend » ne s'écrit qu'APRÈS avoir cherché.** Un orphelin déclaré qui n'a pas
-coûté une lecture des descriptions candidates du domaine n'est pas un état mesuré — c'est une paresse
-déguisée en rigueur, et elle est **pire que le silence**, parce qu'elle a l'air d'un travail fait.
-*Cas mesuré : six points annoncés orphelins, trois marqués « sans exécutant » ; une simple lecture des
-descriptions du domaine a rendu un propriétaire vivant pour les six.*
-
-#### Le troisième étage : placer ne suffit pas non plus — il faut RAPPELER
-
-La chaîne complète est **noter → placer → rappeler**, et on s'arrête presque toujours à la deuxième.
-
-Une compétence est un **dépôt passif** : elle n'oublie rien, et elle ne se réveille jamais seule. Un
-sujet parfaitement placé chez son propriétaire n'est lu que par quelqu'un qui invoquait déjà ce
-propriétaire — c'est-à-dire par personne, puisque c'est justement ce dont on ne se souvient pas.
-
-**Les deux questions, dans l'ordre, pour savoir où on s'est arrêté** :
-
-1. *Si la compétence propriétaire est invoquée demain, retrouve-t-elle le sujet chez elle ?*
-   Non → étage 1, c'est noté ailleurs.
-2. *Si PERSONNE ne l'invoque, quelque chose finit-il par le dire ?* Non → étage 2, c'est placé et
-   muet.
-
-**Ce qui fait passer au troisième étage** : le sujet entre dans un **format que la machine compte
-déjà** — un index dérivé, un compteur, une vue générée — et **une compétence porte le devoir de le
-dire**, pas seulement la capacité de répondre.
-
-⚠️ **Le piège symétrique, qui rend cet étage rare et cher** : un rappel qui parle à chaque session
-devient du papier peint, donc pire que rien. Le rappel s'attache à un **moment que la personne lit
-déjà** (une clôture, un récapitulatif), ou se **déclenche sur un changement** — jamais un compteur
-permanent affiché en boucle.
-
-### N°3 — un cliquet posé sur une grandeur qui BOUGE TOUTE SEULE
-
-On vient de mesurer une dette. On veut l'empêcher de grossir. Le réflexe — et il a l'air
-irréprochable — est de **graver le nombre du jour comme plafond** : *« 206 fichiers, ça ne doit pas
-monter »*. C'est la forme canonique du cliquet, et elle marche… **tant que la grandeur ne bouge que
-par le travail humain.**
-
-**Elle casse dès que la grandeur bouge toute seule.** Il n'y a que deux façons, toujours les mêmes :
-
-| Ce qui bouge sans que personne n'agisse | Ce que le contrôle devient |
-|---|---|
-| **la POPULATION grandit** (un corpus qui gagne des fichiers, des items, des lignes) | rouge sur du travail **sain** — celui qui a ajouté un fichier conforme se fait accuser |
-| **l'HORLOGE avance** (un âge, une péremption, une échéance) | vert aujourd'hui, rouge **pour toujours** dans N jours, sur du travail que **personne n'a fait** |
-
-⚠️ **Et le coût n'est pas le rouge : c'est la DÉSACTIVATION.** Un contrôle qui crie à tort finit
-ignoré, puis retiré — donc il ne protège plus de rien, et la dette qu'il gardait redevient invisible.
-*On a payé le prix d'un contrôle pour se retrouver sans contrôle, avec en prime la conviction qu'il
-y en avait un.*
-
-**LE CONTRÔLE, décidable, avant de graver un plafond** :
-*si personne ne touche à rien pendant un mois, ce nombre change-t-il ?*
-
-- **Non** → un plafond chiffré convient.
-- **Oui** → **le plafond ne doit pas être un NOMBRE, mais un ARRIÉRÉ NOMMÉ ET GELÉ.** On liste les
-  cas existants **un par un**, et le contrat ne porte plus que sur ce qui **ARRIVE** : tout élément
-  absent de la liste doit être conforme. La liste ne peut que **rétrécir**.
-
-**Pourquoi la liste nommée est strictement meilleure, et pas seulement plus douce** — c'est le point
-contre-intuitif : elle est **plus sévère**. Un plafond chiffré laisse un élément neuf **se cacher
-dans le compte** dès qu'un ancien a été réparé le même jour. Une liste nommée ne le permet pas : le
-neuf n'y est pas, donc il rougit.
-
-**Le geste, en trois clauses** :
-
-1. **geler par NOM** — la liste vit dans le fichier de budget, à côté de sa raison ;
-2. **un plafond de TAILLE de liste**, qui ne monte jamais ;
-3. **un élément réparé ne fait rougir personne** — son nom devient périmé, on le publie pour que la
-   liste rétrécisse. Faire rougir sur un nom périmé punirait exactement le geste qu'on veut.
-
-🩸 **Les deux cas, mesurés la même nuit, posés par la même passe** :
-
-- **la POPULATION** — un cliquet gravé à `206`, soit la population publiée à la seconde près. Deux
-  fichiers sont arrivés **dans les quatre minutes**, et le contrôle est passé rouge sur du travail
-  sain. ⚠️ Sa propre documentation invoquait l'arbitrage *« un contrôle qui crie à tort finit
-  désactivé »* — **il le violait dans la ligne suivante**.
-- **l'HORLOGE** — un cliquet sur l'âge des vérifications en attente, vert le jour de la pose parce
-  que l'arriéré était gelé… et le contrôle annonçait lui-même **71 items au-delà du seuil dans
-  7 jours, 130 dans 30**. Rouge programmé, sur du travail que personne n'aurait fait.
-
-✅ **La falsification qui tranche, et c'est une PAIRE** — un seul sabotage ne sépare pas les deux
-mondes : *un élément neuf NON conforme doit rougir* **et** *dix éléments neufs CONFORMES ne doivent
-rien casser*. Le second est celui qu'on oublie, et c'est lui qui prouve qu'on a réparé le bon défaut.
-
-⚠️ **Un sabotage se falsifie AVANT le contrôle qu'il teste.** Payé dans la même heure : un premier
-essai est resté vert parce que la phrase de sabotage disait *« AUCUN témoin négatif »* — elle
-**contenait donc le motif** qu'elle prétendait retirer. On mesure l'état saboté **avec l'instrument
-lui-même**, et on montre qu'il a changé, avant de conclure quoi que ce soit.
+Une décision se rouvre avec une mesure fraîche, jamais au flair. Un remède appliqué une deuxième
+fois est d'abord la preuve que le premier n'a pas tenu.
 
 ---
 
