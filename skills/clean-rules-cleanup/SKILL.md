@@ -122,7 +122,7 @@ vient d'alléger.*
 
 ### Phase 1 — Regroupement thématique (cartographie, zéro modification)
 
-Rendre d'abord la carte utilisateur obligatoire définie au lancement. Puis scanner le fichier entier. Lister **chaque** règle avec son numéro de ligne. Classer par thème.
+**Lancer d'abord `python scripts/registre.py audit <corpus>`** (§7) : il rend en une passe les règles dont personne n'a écrit la raison, celles dont la condition de péremption est atteinte, et celles que plus rien ne fait respecter — la seule entrée qui permette de juger la **pertinence** d'une règle plutôt que sa taille. Rendre ensuite la carte utilisateur obligatoire définie au lancement. Puis scanner le fichier entier. Lister **chaque** règle avec son numéro de ligne. Classer par thème.
 Sortie : une table `règle | ligne | thème`. **Aucune modification à cette phase.**
 
 **L'ordre est non négociable : du plus LARGE au plus SPÉCIFIQUE.**
@@ -143,9 +143,10 @@ Sortie : une table `règle | ligne | thème`. **Aucune modification à cette pha
 | **DÉPLACER → hook** | comportement automatique avant ou après une action |
 | **FUSIONNER avec la règle #X** | cousine d'une règle existante |
 | **SUPPRIMER** | couverte ailleurs, obsolète, ou jamais appliquée |
-| **COMPRESSER sur place** | garder mais réduire — verbatim long en une phrase, exemples au-delà d'un seul coupés |
+| **PÉRIMÉE → archiver le motif** | sa **condition de péremption est atteinte** (registre, §7) : l'outil visé a disparu, la plateforme est abandonnée, le mécanisme est réparé en amont. La seule action qui retire une règle **sur preuve** et non au flair |
+| **COMPRESSER sur place** | garder mais réduire — verbatim long en une phrase, exemples au-delà d'un seul coupés. ⚠️ La prose coupée **descend au registre**, elle ne disparaît pas : sinon la règle devient irretirable au ménage suivant |
 
-Sortie : une table `règle | ligne | thème | action | cible et justification`.
+Sortie : une table `règle | ligne | thème | action | cible et justification`. **Sans le registre (§7), une règle ne se juge que sur sa taille** — donc on compresse, on ne retire jamais, et le corpus remonte d'un cran à chaque passe ; avec lui, elle se juge sur ce qu'elle **protège encore**.
 
 ### Phase 3 — Exécuter le réversible, présenter le reste
 
@@ -210,7 +211,12 @@ consultable.
 3. **Écrire au format** : la règle en une à deux lignes, l'interdit s'il existe, et — si le
    comportement est contre-intuitif — **le contrôle décidable** qui permet de savoir qu'on la viole.
 4. **Placer selon l'ordre** de la Phase 1 : large → spécifique.
-5. **Propager** ce que la nouvelle règle rend faux ailleurs.
+5. **Écrire le MOTIF au registre, même passe** (§7) : ce qui a été payé, le contrôle décidable, et
+   **la condition de péremption**. C'est là que descend la prose que §5 va couper de la règle —
+   sans elle, le « pourquoi » part dans l'historique Git et la règle devient irretirable.
+   **Contrôle** : la règle est-elle écrite sans que sa ligne de registre existe ? Alors ce n'est
+   pas fini.
+6. **Propager** ce que la nouvelle règle rend faux ailleurs.
 
 > 🧭 **La formulation qui tient : une règle utile porte son CONTRÔLE.**
 > *« Sois rigoureux »* n'est pas une règle, c'est un vœu. *« Avant d'écrire un chiffre d'état :
@@ -252,6 +258,45 @@ Une description verbeuse coûte à chaque session **et** déclenche moins bien.
 - ❌ Supprimer définitivement plutôt qu'archiver par date, dans une archive **consultable**.
 - ❌ Recopier un chiffre d'état au lieu de le re-mesurer.
 - ❌ Déclarer une passe finie sans preuve de non-perte.
+
+## §7 — Le registre des motifs : pourquoi chaque règle existe
+
+**Le trou.** §1 veut une règle chargée réduite au comportement et à son contrôle ; §5 coupe donc le
+cas payé, le chiffre et la phrase qui l'a déclenchée — ils partent dans l'historique Git,
+c'est-à-dire nulle part. Personne ne sait plus ce que la règle protège : au doute on garde, et le
+corpus monte d'un cran à chaque passe. **C'est pour ça qu'un ménage finit toujours par ne savoir
+que compresser.**
+
+**Le registre** — [`references/registre-des-motifs.md`](references/registre-des-motifs.md), jamais
+chargé — porte **une ligne par règle** : adresse · date de gravure · ce qui a été payé · contrôle
+décidable · **condition de péremption** · dernière revue. Format et méthode de remplissage dans son
+en-tête.
+
+**La colonne qui fait le travail, c'est la péremption** : les autres décrivent le passé, donc elles
+se relisent et **se croient**. *Contrôle en l'écrivant* : pourrais-je lancer aujourd'hui une
+commande qui me dise si c'est arrivé ? Non → c'est un vœu, et la règle restera pour toujours.
+
+**L'outil** — [`scripts/registre.py`](scripts/registre.py), bibliothèque standard uniquement.
+`sync` ajoute les règles datées absentes en squelette sans jamais réécrire une cellule remplie ·
+`audit` rend motifs manquants, contrôles manquants, règles disparues, **péremptions échues**,
+revues de plus de 180 jours, règles regravées après retrait · `show <motif>` sort une ligne avant
+de toucher à une règle. Il **ne bloque rien** — un gate qui crie au loup finit ignoré.
+
+```bash
+python scripts/registre.py audit CLAUDE.md
+```
+
+**Où il s'accroche** : mode NOUVELLE RÈGLE étape **5** (le motif s'écrit dans la même passe que la
+règle) · Phase **1** du nettoyage (`audit` avant de cartographier) et Phase **2** (action
+`PÉRIMÉE`). L'orphelinat se juge sur l'**adresse `§N`**, jamais sur la date de gravure : un
+nettoyage qui coupe le récit d'une règle efface sa date sans toucher à la règle, et chercher par
+date déclarerait tout le registre orphelin pile le jour où il sert.
+
+**Anti-patterns** : graver une règle sans sa ligne · un déclencheur abstrait (« pour éviter les
+erreurs » est vrai de toutes les règles, donc n'en défend aucune) · laisser la péremption à `—`
+sans avoir cherché la condition · cocher `VIVANTE` sans rien avoir mesuré.
+
+---
 
 ## Pour aller plus loin
 
