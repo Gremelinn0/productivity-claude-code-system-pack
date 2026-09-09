@@ -1,15 +1,13 @@
 ---
 name: skill-quality-guard
 description: >-
-  Le contrôle final avant qu'une compétence soit considérée comme prête : 7 axes vérifiés, dont le
-  poids (moins de 500 lignes), le frontmatter qui doit parser en YAML strict sous peine que la
-  description soit ignorée, la description qui dit QUAND se déclencher avant de dire quoi elle
-  fait, le routage documentaire (pointer, jamais recopier), la porte d'entrée (une compétence
-  orpheline ne s'invoque pas), l'ensemble Dev/Test/QA, et la resynchronisation des copies publiées
-  dans un pack. À invoquer avant toute création ou mise à jour de compétence, et avant tout commit
-  qui touche un dossier de compétences. Triggers : « audite ce skill », « le skill est trop long »,
-  « description pas à jour », « vérifie la qualité du skill », « ce skill a-t-il sa QA », « les
-  compétences sont-elles bien reliées entre elles », « pourquoi mon skill ne se déclenche jamais ».
+  Contrôle final avant qu'une compétence soit dite prête : structure par concepts, frontmatter YAML,
+  déclencheurs, routage documentaire, porte d'entrée, ensemble Dev/Test/QA et copies publiées.
+  Vérifie aussi qu'une compétence propriétaire porte un contrat complet, reprenable depuis son état
+  canonique sans timer ni limite artificielle de durée, de lots, d'actions ou de jetons. À invoquer
+  avant toute création, mise à jour ou validation de compétence. Triggers : « audite ce skill »,
+  « vérifie la qualité du skill », « description pas à jour », « ce skill a-t-il sa QA »,
+  « pourquoi il ne se déclenche pas », « est-il prêt pour une boucle ».
 ---
 
 # skill-quality-guard — le contrôle final, 7 axes
@@ -113,6 +111,15 @@ un *il s'est passé tel truc telle date*.
 ❌ **Anti-pattern** : des sections « Update du 12 », « Fix du 18 », « Note ajoutée le 22 » empilées
 dans le désordre. Si la chronologie compte vraiment → **un** bloc historique unique en fin de
 fichier, le reste organisé par concepts.
+
+### Une compétence propriétaire est prête pour la reprise
+
+Un propriétaire décrit un contrat complet, pas une microtâche : résultat, sources et état
+canonique, progression exécutable, preuves, capitalisation et conditions de fin. Réinvoquée avec
+cet état, la compétence doit retrouver le premier geste et poursuivre sans transcript ni prompt
+qui recopie sa méthode. Elle ne porte aucun timer et ne s'impose aucune timebox, quantité de lots,
+d'actions ou de jetons : un mécanisme de reprise peut la réactiver, mais n'ajoute jamais une
+seconde méthode et ne limite jamais l'avancement du tour courant.
 
 ### Le nommage — la FONCTIONNALITÉ est le premier mot
 
