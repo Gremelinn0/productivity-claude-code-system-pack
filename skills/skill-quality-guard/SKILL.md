@@ -235,6 +235,24 @@ L'écraser republie exactement ce que la dépersonnalisation avait retiré.
 
 **Le geste** : repartir du point où les deux ont divergé, rejouer l'écart, repasser les contrôles.
 
+### Une copie divergente ne ment que si elle est CHARGÉE
+
+Quand on finit par compter la dérive de **tout** le parc, le nombre qui sort fait peur et ne veut
+rien dire tout seul. Le discriminant n'est pas *combien de fichiers diffèrent*, c'est **est-ce que
+ce pack est activé** — la liste des plugins réellement chargés par le harnais.
+
+- Pack **activé** et divergent → il **ment à qui l'invoque**. Défaut réel, à traiter.
+- Pack **désactivé** et divergent → sa dérive **n'atteint personne**, et le re-synchroniser
+  **rallumerait un miroir volontairement éteint**. Ne rien lancer.
+
+*Mesure faite une fois : des dizaines de fiches divergentes sur plusieurs packs, **aucun** activé.
+Le compte brut aurait déclenché une campagne entière pour zéro effet.*
+
+⚠️ **Et cette lecture est bornée à la machine qui mesure.** Un pack peut être inactif ici tout en
+étant **publié et installé ailleurs** : on lit la configuration de **ce** poste, pas celle des
+gens qui l'ont installé. Chez eux la dérive est **NON MESURÉE** — et « non mesuré » ne se lit
+jamais « nul ». Le rendu doit écrire cette frontière, sinon la conclusion voyage sans elle.
+
 > 🩸 **Cet axe était le septième d'un contrôle qui s'annonçait « 6 axes ».** Un contrôle qui annonce
 > moins d'axes qu'il n'en applique fait passer le dernier pour facultatif — et c'est justement celui
 > qui empêche un pack publié de mentir à ses installateurs.
