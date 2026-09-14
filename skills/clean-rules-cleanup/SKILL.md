@@ -162,6 +162,21 @@ arrête la passe.
 *Alléger est indistinguable de perdre : sans cette mesure, le geste a la même signature qu'une
 suppression.*
 
+**Puis rendre le rapport d'exécution — et c'est ce que la personne qui a demandé le ménage attend
+vraiment.** Un gros nettoyage (plus d'une section touchée, une préimage archivée) se termine par un
+fichier écrit dans l'archive de la passe, `RAPPORT.md`, à côté des préimages : avant/après en lignes
+et en octets, puis **une ligne par règle** — ce qui est gardé · la décision (KEEP / COMPRESS /
+FUSION / PÉRIMÉE) · **ce qui est parti, où, pourquoi** — les verbatims gardés et ceux descendus au
+registre, le résultat du contrôle de non-perte, et « rien de supprimé » prouvé par les préimages.
+Le message à la personne tient en trois lignes et donne le lien ; le rapport porte le détail.
+Gabarit : [`references/rapport-d-execution.md`](references/rapport-d-execution.md).
+
+*Pourquoi un rapport, et pas un récapitulatif* : sur quarante sections, un récapitulatif ne dit pas
+où est parti tel verbatim. Sans la ligne, la personne ne peut ni relire ni contester — elle ne peut
+que faire confiance, et c'est exactement ce qu'un ménage ne doit pas demander. **Contrôle** : *le
+rapport existe-t-il dans l'archive de la passe, avec une ligne par règle ?* Non → la passe n'est pas
+finie.
+
 ### Anti-patterns de la passe
 
 - ❌ Compresser sans avoir cartographié d'abord.

@@ -73,6 +73,34 @@ recopier une méthode transverse dans plusieurs endroits locaux.
 8. **Commit et push de chaque dépôt touché** — la synchronisation automatique ne couvre en général
    que le dépôt courant. Les autres sont à faire à la main.
 
+## Dériver plutôt que recopier — quand une règle doit vivre en tête de plusieurs fichiers
+
+Certaines règles ne peuvent pas rester dans un seul fichier : la doctrine « on cadre ensemble, on
+valide une fois, puis l'agent exécute seul » doit être **en tête** de chaque compétence qui la
+met en œuvre — sinon la session qui charge la compétence sans le fichier de règles ne la voit pas.
+Le réflexe est de la recopier. Trois fichiers plus tard, l'un d'eux bouge et **rien ne rougit** :
+l'agent applique une version ou l'autre selon ce qu'il a chargé.
+
+**Le geste** : la règle vit **une fois**, dans le fichier de règles ; chaque compétence porte, entre
+deux marqueurs, un bloc **généré** depuis cette section. On n'édite jamais le bloc — on édite la
+source et on rejoue le script. Un contrôle compare les mots (pas la mise en page) et rougit dès
+qu'une cible diverge, qu'un bloc manque, ou que la source a changé sans régénération.
+
+```bash
+python scripts/derive_bloc.py --source CLAUDE.md --section "^## 33"   --cible skills/mission/SKILL.md --cible skills/boucle/SKILL.md          # pose ou met à jour
+python scripts/derive_bloc.py --source CLAUDE.md --section "^## 33"   --cible skills/mission/SKILL.md --cible skills/boucle/SKILL.md --check  # 0 aligné · 1 écart(s)
+python scripts/derive_bloc.py --self-test                                  # le contrôle sait rougir
+```
+
+Brancher le `--check` là où tourne déjà un contrôle (un test, une intégration continue) : un
+contrôle qu'on lance à la main ne se lance pas. **Ce qui n'est pas dérivable se stampe** : une
+page humaine qui *traduit* la règle en langage courant ne peut pas être générée — on y pose
+l'empreinte de la section source, et le contrôle rougit quand la règle a changé sans que la page
+ait été relue.
+
+*Le contrôle avant de recopier une règle* : la session qui commettra la faute charge-t-elle ce
+fichier ? Oui → il lui faut le bloc, dérivé. Non → un lien suffit, et la copie est un doublon.
+
 ## Le contrôle anti-doublon, à chaque surface
 
 Une information vit dans **une** couche, pas deux. Elle existe déjà ailleurs → on met un **lien**,

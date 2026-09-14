@@ -31,9 +31,9 @@ déjà.
 |---|---|---|
 | 1 | **`dev-capitaliser`** | un travail vient de finir : range le **fait** et le **pourquoi** chez leur propriétaire, pour qu'on ne redemande pas la même chose la fois d'après |
 | 2 | **`optimise-systeme`** | mesure le système entier — règles, compétences, documents — avant de le juger, puis l'améliore dans l'ordre |
-| 3 | **`clean-rules-cleanup`** | écrire, alléger ou déplacer une règle, et décider à quel niveau elle vit |
+| 3 | **`clean-rules-cleanup`** | écrire, alléger ou déplacer une règle, décider à quel niveau elle vit — et rendre, après un ménage, le rapport qui dit ce qui est parti, où et pourquoi |
 | 4 | **`skill-quality-guard`** | le contrôle final : sept axes avant de dire qu'une compétence est prête |
-| 5 | **`propage-systeme`** | une règle a changé : corrige **toutes** les surfaces qui disaient l'inverse |
+| 5 | **`propage-systeme`** | une règle a changé : corrige **toutes** les surfaces qui disaient l'inverse — et quand elle doit vivre en tête de plusieurs fichiers, la **dérive** au lieu de la recopier |
 
 **Elles forment une boucle**, et c'est le vrai contenu du pack : une leçon devient une règle (3) →
 la règle trouve son niveau (3) → elle se propage partout (5) → le système se re-mesure (2) → ce
@@ -72,13 +72,13 @@ faut savoir avant de les lancer.
 | | Ce que c'est | Ce que tu dois savoir |
 |---|---|---|
 | **Prérequis** | Claude Code, et un dossier de compétences (`~/.claude/skills/` ou `.claude/skills/` dans ton projet) | rien à installer de plus |
-| **Un seul bout de code** | un extrait Python dans `optimise-systeme` qui vérifie que tes `description:` sont lisibles | nécessite `pyyaml` — sinon, saute cet extrait, tout le reste marche |
+| **Le code fourni** | un extrait Python dans `optimise-systeme` (lisibilité des `description:`, nécessite `pyyaml`) et deux scripts en bibliothèque standard : `clean-rules-cleanup/scripts/registre.py` (le registre des motifs) et `propage-systeme/scripts/derive_bloc.py` (une règle vit une fois, ses copies sont dérivées et contrôlées) | chacun a son `--self-test` ; tout le reste marche sans |
 | **Chemins** | `skills/*/SKILL.md` et `~/.claude/skills/*/SKILL.md` | ce sont les emplacements standards ; adapte si tu ranges ailleurs |
 | **Système** | testé sous Windows, écrit sans dépendance système | l'extrait Python utilise `expanduser`, donc il marche aussi sous macOS et Linux |
 | **Tes propres contrôles** | les compétences te disent **quoi** outiller, jamais avec quel outil | à toi d'écrire les tests dans ton langage et ton harnais |
 
-**Ce qui n'est pas fourni, et c'est délibéré** : aucun test, aucun script de contrôle, aucun
-crochet. Ces compétences décrivent les contrôles qui valent la peine d'exister chez toi ; elles
+**Ce qui n'est pas fourni, et c'est délibéré** : aucun crochet, aucun test branché sur ton
+harnais. Ces compétences décrivent les contrôles qui valent la peine d'exister chez toi ; elles
 n'imposent pas la forme qu'ils prennent. Un contrôle copié d'un autre projet mesure l'autre projet.
 
 ---
