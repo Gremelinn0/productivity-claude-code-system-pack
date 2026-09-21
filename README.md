@@ -29,7 +29,7 @@ déjà.
 
 | | Compétence | Le geste |
 |---|---|---|
-| 1 | **`dev-capitaliser`** | un travail vient de finir : range le **fait** et le **pourquoi** chez leur propriétaire, pour qu'on ne redemande pas la même chose la fois d'après |
+| 1 | **`capitaliser`** | un travail vient de finir : range le **fait** et le **pourquoi** chez leur propriétaire, pour qu'on ne redemande pas la même chose la fois d'après |
 | 2 | **`optimise-systeme`** | mesure le système entier — règles, compétences, documents — avant de le juger, puis l'améliore dans l'ordre |
 | 3 | **`clean-rules-cleanup`** | écrire, alléger ou déplacer une règle, décider à quel niveau elle vit — et rendre, après un ménage, le rapport qui dit ce qui est parti, où et pourquoi |
 | 4 | **`skill-quality-guard`** | le contrôle final : sept axes avant de dire qu'une compétence est prête |
@@ -54,12 +54,16 @@ Prises une par une, ce sont cinq outils. Prises ensemble, c'est un cycle de vie.
 /plugin install claude-code-system-pack
 ```
 
-Puis invoque-les par leur nom : `/dev-capitaliser`, `/optimise-systeme`, `/clean-rules-cleanup`,
+Puis invoque-les par leur nom : `/capitaliser`, `/optimise-systeme`, `/clean-rules-cleanup`,
 `/skill-quality-guard`, `/propage-systeme`.
 
 Chacune se déclenche aussi toute seule sur ce que tu écris — « le système est en bordel »,
 « ajoute cette règle », « on répète toujours la même chose ». C'est le rôle de leur `description:`,
 et c'est pour ça que le pack en soigne la rédaction plutôt que la longueur.
+
+> **Migration 0.3.0** — `dev-capitaliser` s'appelle désormais **`capitaliser`**. Le geste public
+> est volontairement transversal : il adapte sa preuve et sa destination à l'environnement au lieu
+> de supposer un projet de développement.
 
 ---
 
