@@ -6,13 +6,13 @@
   },
   "metadata": {
     "description": "Entretenir le système d'un agent — ses règles, ses compétences, sa documentation — au lieu de le laisser gonfler.",
-    "version": "0.2.0"
+    "version": "0.4.0"
   },
   "plugins": [
     {
       "name": "claude-code-system-pack",
       "source": "./",
-      "description": "Cinq gestes : capitaliser une leçon, mesurer le système, écrire une règle qui porte son contrôle, contrôler une compétence, propager un changement partout.",
+      "description": "Cinq gestes et une porte : capitaliser une leçon, mesurer le système, écrire une règle qui porte son contrôle, contrôler une compétence, propager un changement partout ; /router-entretien-systeme dit lequel appeler pour quel symptôme.",
       "category": "productivity"
     }
   ]
