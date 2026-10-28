@@ -1,0 +1,22 @@
+name: Vérification du Claude Code System Pack
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  contrats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Inventaire (auto-test)
+        run: python skills/skill-cleaner/scripts/inventaire.py --self-test
+      - name: Contrats et références
+        run: python scripts/verifier_pack.py
+      - name: Inventaire du pack
+        run: python skills/skill-cleaner/scripts/inventaire.py skills --json > /tmp/skills-inventaire.json
