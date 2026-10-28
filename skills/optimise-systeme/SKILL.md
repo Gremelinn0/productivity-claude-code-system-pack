@@ -13,6 +13,22 @@ description: >-
 
 # optimise-systeme — la méthode objective
 
+## Usage courant : optimiser le travail en cours
+
+Dans une discussion, partir de la tâche présente et de ses dépendances utiles (skills, règles, contexte, mémoire, fichiers, agents, routines, documentation). Une revue générale n'est lancée que si la demande porte réellement sur un projet entier ou plusieurs dépôts.
+
+Distinguer la demande d'avis ou de plan de la demande d'exécution. Sur un défaut isolé, mesurer son résultat plutôt que lancer par défaut tout l'inventaire.
+
+### Appels spécialisés
+
+- Apprentissage à conserver : `/capitaliser`.
+- Règle à créer ou modifier, hooks à examiner : `/clean-rules-cleanup`.
+- Parc de compétences à réorganiser ou dédoublonner : `/skill-cleaner`.
+- Compétence à fabriquer, refondre ou vérifier : `/skill-quality-guard`, avec le `skill-creator` officiel d'Anthropic pour l'écriture et les essais.
+- Sources ou pages devenues fausses : `/propage-systeme`.
+
+Choisir le propriétaire selon le problème, transmettre le contexte et vérifier son résultat avant la suite. Cette compétence garde la coordination, sans réimplémenter les méthodes.
+
 ## Posture — l'objectif d'abord
 
 - **Mesurer AVANT de juger.** Pas de « c'est le bordel » à l'oreille → **chiffrer** : nombre de
