@@ -71,18 +71,17 @@ fois est d'abord la preuve que le premier n'a pas tenu.
 
 ### 1 · CIBLER
 
-Quel système ? Un projet précis, ou l'écosystème entier. Le dossier courant donne le défaut.
-Plusieurs projets → traiter chacun, jamais un seul en oubliant les autres.
+Par défaut, prendre **la tâche en cours** et les seules dépendances pertinentes. Une demande explicitement globale porte sur tout le projet ou l'écosystème ; ne pas élargir par réflexe. Le travail concerné peut comprendre une règle, une compétence, un fichier de contexte, une mémoire, un agent ou une routine.
 
 ### 2 · DIAGNOSTIC — demander la carte, pas la refaire
 
 Partir de ce qui prétend **déjà** répondre à la question : la carte « où vit quoi » du projet, son
 état, ses inventaires. Carte périmée ou absente → la régénérer d'abord, puis repartir de là.
-Inventorier : les fichiers de règles (lignes, sections), les compétences actives, les cartes.
+Inventorier les éléments effectivement concernés : règles, compétences, contexte, mémoire, fichiers de référence, cartes, agents, routines ou hooks. Étendre au parc complet uniquement pour une revue globale.
 
 ### 3 · MESURER — chiffré, reproductible
 
-Sortir des **nombres**, pas des impressions :
+Mesurer le défaut avec un indicateur **adapté à la demande** : reproduction, déclenchement, fichiers concernés, données et tests. Pour une revue complète, ajouter les indicateurs de parc ci-dessous. Ne pas réduire une optimisation au nombre de lignes :
 
 - Lignes par fichier de règles (coût en contexte × nombre de sessions).
 - Compétences : total, actives contre dormantes, candidates au doublon.
