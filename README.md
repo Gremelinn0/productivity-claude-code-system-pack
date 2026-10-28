@@ -73,15 +73,13 @@ sa source. Seuls les détails propres à un environnement sont adaptés.
 /plugin install claude-code-system-pack
 ```
 
-Pour une demande transversale, commence par **`/router-entretien-systeme`**. Les six propriétaires restent disponibles par leur nom : `/capitaliser`, `/optimise-systeme`, `/clean-rules-cleanup`,
-`/skill-cleaner`, `/skill-quality-guard`, `/propage-systeme`.
+Commence par **`/capitaliser`**, **`/clean-rules-cleanup`** ou **`/optimise-systeme`**, selon le besoin. Pour une demande transversale, `/router-entretien-systeme` reste une entrée facultative. Les trois spécialistes `/skill-cleaner`, `/skill-quality-guard` et `/propage-systeme` sont aussi invocables directement.
 
 Chacune se déclenche aussi toute seule sur ce que tu écris — « le système est en bordel »,
 « ajoute cette règle », « on répète toujours la même chose ». C'est le rôle de leur `description:`,
 et c'est pour ça que le pack en soigne la rédaction plutôt que la longueur.
 
-> **Version 0.4.0** — ajout de `router-entretien-systeme` : porte d'aiguillage sans copie des cinq
-> méthodes. **Migration 0.3.0** — `dev-capitaliser` s'appelle désormais **`capitaliser`**. Le geste public
+> **Version 0.4.0** — ajout de `router-entretien-systeme` : porte d'aiguillage sans copie des méthodes. **Migration 0.3.0** — `dev-capitaliser` s'appelle désormais **`capitaliser`**. Le geste public
 > est volontairement transversal : il adapte sa preuve et sa destination à l'environnement au lieu
 > de supposer un projet de développement.
 
@@ -126,12 +124,11 @@ pas avoir exécuté les évaluations. Le pack ne l'installe pas à l'insu de l'u
   pack ne le recopie pas — les deux se complètent : celui-ci décide **ce qu'il faut** contrôler,
   l'autre **fait** le contrôle.
 - **Il ne range pas tes compétences à ta place.** Il te dit comment décider, pas quoi décider.
-- **Il ne remplace pas la compétence officielle de création de compétences.** `skill-quality-guard`
-  est un **contrôle final**, pas un générateur.
+- **Il ne remplace pas la compétence officielle de création de compétences.** `skill-quality-guard` conduit l'intervention et le contrôle final en appelant l'outil officiel pour la rédaction et les essais.
 
 ---
 
-## Une idée qui traverse les cinq
+## Un principe partagé par ces compétences
 
 **Une règle utile porte son contrôle.**
 
