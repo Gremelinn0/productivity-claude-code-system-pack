@@ -25,10 +25,10 @@ déjà.
 
 ---
 
-## La porte du pack — `/router-entretien-systeme`
+## Une porte facultative — `/router-entretien-systeme`
 
 Le routeur [`router-entretien-systeme`](skills/router-entretien-systeme/SKILL.md) identifie le
-**symptôme**, choisit l'une des cinq compétences ci-dessous et transmet son contexte.
+**symptôme**, choisit l'un des six responsables et transmet son contexte.
 Il ne fusionne pas leurs méthodes et n'exécute pas lui-même les changements.
 
 | Tu observes… | Première compétence |
@@ -36,11 +36,11 @@ Il ne fusionne pas leurs méthodes et n'exécute pas lui-même les changements.
 | L'agent refait une erreur déjà corrigée | `/capitaliser` |
 | Des règles gonflent ou s'entassent | `/clean-rules-cleanup` |
 | Des compétences se contredisent ; tu veux mesurer avant d'optimiser | `/optimise-systeme` |
-| Une compétence créée ou modifiée doit être validée | `/skill-quality-guard` |
+| Une compétence doit être créée, refondue ou vérifiée | `/skill-quality-guard` |
+| Plusieurs compétences doublonnent ou sont mal rangées | `/skill-cleaner` |
 | Une page ou une carte humaine décrit encore l'ancien système | `/propage-systeme` |
 
-Invoquer `/router-entretien-systeme` pour une demande transversale ou directement
-la compétence dédiée quand son propriétaire est connu. En cas de plusieurs gestes,
+Les trois commandes quotidiennes s'invoquent directement. Le routeur aide à choisir le spécialiste pour une demande transversale. En cas de plusieurs gestes,
 le routeur appelle les propriétaires dans l'ordre, puis rapporte ce qui a
 **réellement été vérifié**, sans inventer de mesure.
 
@@ -73,9 +73,8 @@ sa source. Seuls les détails propres à un environnement sont adaptés.
 /plugin install claude-code-system-pack
 ```
 
-Pour une demande transversale, commence par **`/router-entretien-systeme`**. Les cinq propriétaires
-restent disponibles par leur nom : `/capitaliser`, `/optimise-systeme`, `/clean-rules-cleanup`,
-`/skill-quality-guard`, `/propage-systeme`.
+Pour une demande transversale, commence par **`/router-entretien-systeme`**. Les six propriétaires restent disponibles par leur nom : `/capitaliser`, `/optimise-systeme`, `/clean-rules-cleanup`,
+`/skill-cleaner`, `/skill-quality-guard`, `/propage-systeme`.
 
 Chacune se déclenche aussi toute seule sur ce que tu écris — « le système est en bordel »,
 « ajoute cette règle », « on répète toujours la même chose ». C'est le rôle de leur `description:`,
@@ -107,6 +106,18 @@ harnais. Ces compétences décrivent les contrôles qui valent la peine d'existe
 n'imposent pas la forme qu'ils prennent. Un contrôle copié d'un autre projet mesure l'autre projet.
 
 ---
+
+## Dépendance officielle
+
+Pour fabriquer, refondre et évaluer des compétences, `/skill-quality-guard`
+appelle le `skill-creator` officiel d'Anthropic. Il est à installer à part :
+
+```text
+/plugin install skill-creator@claude-plugins-official
+```
+
+Si cette dépendance est absente, le contrôle le signale et ne prétend
+pas avoir exécuté les évaluations. Le pack ne l'installe pas à l'insu de l'utilisateur.
 
 ## Ce que ce pack ne fait pas
 
