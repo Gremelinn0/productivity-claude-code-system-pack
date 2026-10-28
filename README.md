@@ -1,7 +1,7 @@
 # Claude Code System Pack
 
-**Cinq compétences propriétaires et un routeur pour entretenir le système d'un agent** — ses règles,
-ses compétences, sa documentation — au lieu de le laisser gonfler.
+**Trois commandes au quotidien, trois spécialistes et un routeur facultatif.**
+Pour entretenir les compétences, les règles et le système d'un agent après un retour concret.
 
 ---
 
@@ -46,24 +46,22 @@ le routeur appelle les propriétaires dans l'ordre, puis rapporte ce qui a
 
 ---
 
-## Les cinq compétences
+## Les compétences
 
-| | Compétence | Le geste |
-|---|---|---|
-| 1 | **`capitaliser`** | un travail vient de finir : range le **fait** et le **pourquoi** chez leur propriétaire, pour qu'on ne redemande pas la même chose la fois d'après |
-| 2 | **`optimise-systeme`** | mesure le système entier — règles, compétences, documents — avant de le juger, puis l'améliore dans l'ordre |
-| 3 | **`clean-rules-cleanup`** | écrire, alléger ou déplacer une règle, décider à quel niveau elle vit — et rendre, après un ménage, le rapport qui dit ce qui est parti, où et pourquoi |
-| 4 | **`skill-quality-guard`** | le contrôle final : sept axes avant de dire qu'une compétence est prête |
-| 5 | **`propage-systeme`** | une règle a changé : corrige **toutes** les surfaces qui disaient l'inverse — et quand elle doit vivre en tête de plusieurs fichiers, la **dérive** au lieu de la recopier |
+| Commande | Responsabilité |
+| --- | --- |
+| `/capitaliser` | Transformer les apprentissages et livrables en savoir retrouvable. |
+| `/clean-rules-cleanup` | Créer et entretenir les règles et, sur autorisation, les hooks. |
+| `/optimise-systeme` | Améliorer le système de la tâche en cours et orchestrer les spécialistes ; revue complète sur demande. |
+| `/skill-cleaner` | Ranger, comparer, fusionner ou archiver les compétences d'un parc avec preuve de non-perte. |
+| `/skill-quality-guard` | Fabriquer, refondre, vérifier et resynchroniser une compétence avec `skill-creator` d'Anthropic. |
+| `/propage-systeme` | Actualiser toutes les sources que le changement rend fausses. |
 
-**Elles forment une boucle**, et c'est le vrai contenu du pack : une leçon devient une règle (3) →
-la règle trouve son niveau (3) → elle se propage partout (5) → le système se re-mesure (2) → ce
-qu'on a appris en route se range chez son propriétaire (1) → la prochaine compétence écrite passe
-le contrôle (4).
+Les trois premières sont les **entrées quotidiennes**. Les autres sont des
+spécialistes appelés selon la nature de l'intervention.
 
-Prises une par une, ce sont cinq outils. Prises ensemble, c'est un cycle de vie.
-
----
+Une copie distribuée conserve **les mêmes responsabilités et capacités** que
+sa source. Seuls les détails propres à un environnement sont adaptés.
 
 ## Installation
 
