@@ -4,23 +4,28 @@ description: >-
   Porte d'entrée du Claude Code System Pack : quand un agent répète une erreur corrigée,
   que les règles gonflent, que les compétences se contredisent, qu'une modification
   n'a pas été propagée ou que l'on veut mesurer avant d'optimiser, choisir parmi
-  capitaliser, clean-rules-cleanup, optimise-systeme, skill-quality-guard et
+  capitaliser, clean-rules-cleanup, optimise-systeme, skill-cleaner, skill-quality-guard et
   propage-systeme, les invoquer dans le bon ordre et restituer leur verdict.
   Triggers : « entretenir mon système », « quelle compétence pour mes règles »,
   « mon agent refait la même erreur », « mes skills se contredisent »,
   « la doc est périmée », « mesure avant de corriger », « route le System Pack ».
 metadata:
-  owns: "la sélection des cinq propriétaires et le passage de leurs sorties, jamais leur méthode"
+  owns: "la sélection des six propriétaires et le passage de leurs sorties, jamais leur méthode"
   consumes: "description du symptôme, surfaces de règles, résultats et preuves des compétences"
 ---
 
-# router-entretien-systeme — une porte, cinq propriétaires
+# router-entretien-systeme — une porte de compatibilité, six responsables
+
+**Trois entrées quotidiennes :** `/capitaliser` pour un apprentissage,
+`/clean-rules-cleanup` pour une règle et `/optimise-systeme` pour
+améliorer le système de la tâche en cours. Ce routeur aide lorsque le
+problème est transversal ; il n'est pas un passage obligatoire.
 
 **Rôle unique :** traduire un symptôme en propriétaire(s), puis transmettre le contexte
 nécessaire à chacun. Ce routeur ne nettoie aucune règle, ne mesure aucun système,
 ne modifie aucune compétence et ne capitalise aucun apprentissage lui-même.
 **Ne fait pas :** recopier la procédure d'une autre compétence ; créer un deuxième
-registre de vérité ; imposer les cinq étapes à tous les cas.
+registre de vérité ; imposer les six étapes à tous les cas.
 **Rend :** choix motivé, enchaînement réel, preuves/contrôles et statut `fait / bloqué / non exécuté`.
 
 ## Carte : symptôme → propriétaire
@@ -32,6 +37,7 @@ registre de vérité ; imposer les cinq étapes à tous les cas.
 | « Mes compétences se contredisent » ou carte documentaire mensongère | `/optimise-systeme` pour constater et mesurer le conflit | `/clean-rules-cleanup` sur la règle propriétaire, `/skill-quality-guard` sur les compétences touchées, `/propage-systeme` |
 | « Je veux mesurer avant d'optimiser » ; trop de compétences ; système confus | `/optimise-systeme` | En fonction du diagnostic seulement : `/clean-rules-cleanup`, `/skill-quality-guard`, `/propage-systeme` ; `/optimise-systeme` re-mesure |
 | « Je veux écrire ou déplacer une règle » | `/clean-rules-cleanup` | `/skill-quality-guard` si SKILL.md modifié, puis `/propage-systeme` |
+| « Ces deux skills font la même chose » ; « range le parc » | `/skill-cleaner` | `/skill-quality-guard` pour chaque compétence refondue, puis `/propage-systeme` si d'autres supports deviennent faux |
 | « Cette compétence est-elle prête ? » ; déclenchement cassé | `/skill-quality-guard` | Revenir au propriétaire du défaut, puis **refaire** le contrôle sur les sept axes |
 | « Une règle a changé, le Hub/README/le projet dit encore l'ancien fait » | `/propage-systeme` | `/skill-quality-guard` si la correction modifie une compétence |
 | « Je viens de finir : que faut-il retenir ? » | `/capitaliser` | Rien si le verdict est `RIEN` ; propagation si une nouvelle règle change d'autres surfaces |
@@ -84,7 +90,7 @@ La compétence appelée conserve **la seule autorité** sur son domaine.
   validation tant que les contrôles exigés n'ont pas été réellement lancés.
 - **Propagation** : vérifier les surfaces lisibles par l'agent **et par les humains**.
   Un pointeur vers une page privée ou un guide périmé n'est pas une preuve d'installation.
-- **Pack indépendant** : cinq compétences propriétaires dans `../` ;
+- **Pack indépendant** : six compétences propriétaires dans `../` ;
   `/dev-capitaliser` a été retiré au profit de `/capitaliser`. Ne pas invoquer l'ancien nom.
 - **Ne pas confondre** ce pack avec `claude-code-guardrails` : ce dernier contient
   des garde-fous mécaniques (hooks). Le routeur ne promet pas de mécanisme bloquant qu'il
