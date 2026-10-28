@@ -1,7 +1,7 @@
 # Claude Code System Pack
 
-**Cinq compétences propriétaires et un routeur pour entretenir le système d'un agent** — ses règles,
-ses compétences, sa documentation — au lieu de le laisser gonfler.
+**Trois commandes au quotidien, trois spécialistes et un routeur facultatif.**
+Pour entretenir les compétences, les règles et le système d'un agent après un retour concret.
 
 ---
 
@@ -25,10 +25,10 @@ déjà.
 
 ---
 
-## La porte du pack — `/router-entretien-systeme`
+## Une porte facultative — `/router-entretien-systeme`
 
 Le routeur [`router-entretien-systeme`](skills/router-entretien-systeme/SKILL.md) identifie le
-**symptôme**, choisit l'une des cinq compétences ci-dessous et transmet son contexte.
+**symptôme**, choisit l'un des six responsables et transmet son contexte.
 Il ne fusionne pas leurs méthodes et n'exécute pas lui-même les changements.
 
 | Tu observes… | Première compétence |
@@ -36,34 +36,32 @@ Il ne fusionne pas leurs méthodes et n'exécute pas lui-même les changements.
 | L'agent refait une erreur déjà corrigée | `/capitaliser` |
 | Des règles gonflent ou s'entassent | `/clean-rules-cleanup` |
 | Des compétences se contredisent ; tu veux mesurer avant d'optimiser | `/optimise-systeme` |
-| Une compétence créée ou modifiée doit être validée | `/skill-quality-guard` |
+| Une compétence doit être créée, refondue ou vérifiée | `/skill-quality-guard` |
+| Plusieurs compétences doublonnent ou sont mal rangées | `/skill-cleaner` |
 | Une page ou une carte humaine décrit encore l'ancien système | `/propage-systeme` |
 
-Invoquer `/router-entretien-systeme` pour une demande transversale ou directement
-la compétence dédiée quand son propriétaire est connu. En cas de plusieurs gestes,
+Les trois commandes quotidiennes s'invoquent directement. Le routeur aide à choisir le spécialiste pour une demande transversale. En cas de plusieurs gestes,
 le routeur appelle les propriétaires dans l'ordre, puis rapporte ce qui a
 **réellement été vérifié**, sans inventer de mesure.
 
 ---
 
-## Les cinq compétences
+## Les compétences
 
-| | Compétence | Le geste |
-|---|---|---|
-| 1 | **`capitaliser`** | un travail vient de finir : range le **fait** et le **pourquoi** chez leur propriétaire, pour qu'on ne redemande pas la même chose la fois d'après |
-| 2 | **`optimise-systeme`** | mesure le système entier — règles, compétences, documents — avant de le juger, puis l'améliore dans l'ordre |
-| 3 | **`clean-rules-cleanup`** | écrire, alléger ou déplacer une règle, décider à quel niveau elle vit — et rendre, après un ménage, le rapport qui dit ce qui est parti, où et pourquoi |
-| 4 | **`skill-quality-guard`** | le contrôle final : sept axes avant de dire qu'une compétence est prête |
-| 5 | **`propage-systeme`** | une règle a changé : corrige **toutes** les surfaces qui disaient l'inverse — et quand elle doit vivre en tête de plusieurs fichiers, la **dérive** au lieu de la recopier |
+| Commande | Responsabilité |
+| --- | --- |
+| `/capitaliser` | Transformer les apprentissages et livrables en savoir retrouvable. |
+| `/clean-rules-cleanup` | Créer et entretenir les règles et, sur autorisation, les hooks. |
+| `/optimise-systeme` | Améliorer le système de la tâche en cours et orchestrer les spécialistes ; revue complète sur demande. |
+| `/skill-cleaner` | Ranger, comparer, fusionner ou archiver les compétences d'un parc avec preuve de non-perte. |
+| `/skill-quality-guard` | Fabriquer, refondre, vérifier et resynchroniser une compétence avec `skill-creator` d'Anthropic. |
+| `/propage-systeme` | Actualiser toutes les sources que le changement rend fausses. |
 
-**Elles forment une boucle**, et c'est le vrai contenu du pack : une leçon devient une règle (3) →
-la règle trouve son niveau (3) → elle se propage partout (5) → le système se re-mesure (2) → ce
-qu'on a appris en route se range chez son propriétaire (1) → la prochaine compétence écrite passe
-le contrôle (4).
+Les trois premières sont les **entrées quotidiennes**. Les autres sont des
+spécialistes appelés selon la nature de l'intervention.
 
-Prises une par une, ce sont cinq outils. Prises ensemble, c'est un cycle de vie.
-
----
+Une copie distribuée conserve **les mêmes responsabilités et capacités** que
+sa source. Seuls les détails propres à un environnement sont adaptés.
 
 ## Installation
 
@@ -75,16 +73,13 @@ Prises une par une, ce sont cinq outils. Prises ensemble, c'est un cycle de vie.
 /plugin install claude-code-system-pack
 ```
 
-Pour une demande transversale, commence par **`/router-entretien-systeme`**. Les cinq propriétaires
-restent disponibles par leur nom : `/capitaliser`, `/optimise-systeme`, `/clean-rules-cleanup`,
-`/skill-quality-guard`, `/propage-systeme`.
+Commence par **`/capitaliser`**, **`/clean-rules-cleanup`** ou **`/optimise-systeme`**, selon le besoin. Pour une demande transversale, `/router-entretien-systeme` reste une entrée facultative. Les trois spécialistes `/skill-cleaner`, `/skill-quality-guard` et `/propage-systeme` sont aussi invocables directement.
 
 Chacune se déclenche aussi toute seule sur ce que tu écris — « le système est en bordel »,
 « ajoute cette règle », « on répète toujours la même chose ». C'est le rôle de leur `description:`,
 et c'est pour ça que le pack en soigne la rédaction plutôt que la longueur.
 
-> **Version 0.4.0** — ajout de `router-entretien-systeme` : porte d'aiguillage sans copie des cinq
-> méthodes. **Migration 0.3.0** — `dev-capitaliser` s'appelle désormais **`capitaliser`**. Le geste public
+> **Version 0.4.0** — ajout de `router-entretien-systeme` : porte d'aiguillage sans copie des méthodes. **Migration 0.3.0** — `dev-capitaliser` s'appelle désormais **`capitaliser`**. Le geste public
 > est volontairement transversal : il adapte sa preuve et sa destination à l'environnement au lieu
 > de supposer un projet de développement.
 
@@ -110,6 +105,18 @@ n'imposent pas la forme qu'ils prennent. Un contrôle copié d'un autre projet m
 
 ---
 
+## Dépendance officielle
+
+Pour fabriquer, refondre et évaluer des compétences, `/skill-quality-guard`
+appelle le `skill-creator` officiel d'Anthropic. Il est à installer à part :
+
+```text
+/plugin install skill-creator@claude-plugins-official
+```
+
+Si cette dépendance est absente, le contrôle le signale et ne prétend
+pas avoir exécuté les évaluations. Le pack ne l'installe pas à l'insu de l'utilisateur.
+
 ## Ce que ce pack ne fait pas
 
 - **Il ne pose pas de garde-fous mécaniques.** Pour l'étage « contrôles qui bloquent », il y a
@@ -117,12 +124,11 @@ n'imposent pas la forme qu'ils prennent. Un contrôle copié d'un autre projet m
   pack ne le recopie pas — les deux se complètent : celui-ci décide **ce qu'il faut** contrôler,
   l'autre **fait** le contrôle.
 - **Il ne range pas tes compétences à ta place.** Il te dit comment décider, pas quoi décider.
-- **Il ne remplace pas la compétence officielle de création de compétences.** `skill-quality-guard`
-  est un **contrôle final**, pas un générateur.
+- **Il ne remplace pas la compétence officielle de création de compétences.** `skill-quality-guard` conduit l'intervention et le contrôle final en appelant l'outil officiel pour la rédaction et les essais.
 
 ---
 
-## Une idée qui traverse les cinq
+## Un principe partagé par ces compétences
 
 **Une règle utile porte son contrôle.**
 
