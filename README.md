@@ -112,9 +112,9 @@ n'imposent pas la forme qu'ils prennent. Un contrôle copié d'un autre projet m
 
 ## Ce que ce pack ne fait pas
 
-- **Il ne pose pas de garde-fous mécaniques.** Pour l'étage « contrôles qui bloquent », il y a
-  [`claude-code-guardrails`](https://github.com/Gremelinn0/claude-code-guardrails), déjà public. Ce
-  pack ne le recopie pas — les deux se complètent : celui-ci décide **ce qu'il faut** contrôler,
+- **Il ne pose pas de garde-fous mécaniques.** Pour l'étage « contrôles qui bloquent », il faut
+  un pack de garde-fous mécaniques (des hooks), à installer à part. Ce
+  pack ne les recopie pas — les deux se complètent : celui-ci décide **ce qu'il faut** contrôler,
   l'autre **fait** le contrôle.
 - **Il ne range pas tes compétences à ta place.** Il te dit comment décider, pas quoi décider.
 - **Il ne remplace pas la compétence officielle de création de compétences.** `skill-quality-guard`

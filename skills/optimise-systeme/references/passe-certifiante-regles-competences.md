@@ -69,7 +69,7 @@ Une référence vit sous l'owner qui saura quand la relire.
 | altitude globale | la compétence qui décide du niveau d'une règle |
 | règles `CLAUDE.md` | `/clean-rules-cleanup` |
 | parc de compétences, verdicts et non-perte | `/clean-rules-cleanup` (mode audit du parc) |
-| création ou réécriture substantielle | `skill-creator → /skill-factory → /skill-quality-guard` |
+| création ou réécriture substantielle | `skill-creator → la fabrication de la compétence → /skill-quality-guard` |
 | décision qui vient de rendre une source fausse | `/capitaliser` |
 | partage public ou lead magnet | la compétence qui décide si ça peut sortir |
 | propagation finale des surfaces humaines | `/propage-systeme` |

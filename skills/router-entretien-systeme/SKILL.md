@@ -86,8 +86,8 @@ La compétence appelée conserve **la seule autorité** sur son domaine.
   Un pointeur vers une page privée ou un guide périmé n'est pas une preuve d'installation.
 - **Pack indépendant** : cinq compétences propriétaires dans `../` ;
   `/dev-capitaliser` a été retiré au profit de `/capitaliser`. Ne pas invoquer l'ancien nom.
-- **Ne pas confondre** ce pack avec `claude-code-guardrails` : ce dernier contient
-  des garde-fous mécaniques (hooks). Le routeur ne promet pas de mécanisme bloquant qu'il
+- **Ne pas confondre** ce pack avec un pack de garde-fous mécaniques (hooks), à installer à part :
+  ce dernier contient les contrôles qui bloquent. Le routeur ne promet pas de mécanisme bloquant qu'il
   n'exécute pas.
 
 ## Contrat de sortie court
