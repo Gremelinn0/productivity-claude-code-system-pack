@@ -1,16 +1,52 @@
 ---
 name: skill-quality-guard
 description: >-
-  Contrôle final avant qu'une compétence soit dite prête : structure par concepts, frontmatter YAML,
-  déclencheurs, routage documentaire, porte d'entrée, ensemble Dev/Test/QA et copies publiées.
-  Vérifie aussi qu'une compétence propriétaire porte un contrat complet, reprenable depuis son état
-  canonique sans timer ni limite artificielle de durée, de lots, d'actions ou de jetons. À invoquer
-  avant toute création, mise à jour ou validation de compétence. Triggers : « audite ce skill »,
-  « vérifie la qualité du skill », « description pas à jour », « ce skill a-t-il sa QA »,
-  « pourquoi il ne se déclenche pas », « est-il prêt pour une boucle ».
+  Quand une compétence doit être fabriquée, refondue, contrôlée ou resynchronisée
+  avec sa copie distribuée, conduire ce geste jusqu'à son verdict. Pour la rédaction,
+  l'amélioration et les évaluations comportementales, appeler d'abord le skill officiel
+  d'Anthropic skill-creator, s'il est disponible. Porter ensuite les décisions de
+  propriétaire, niveau, nommage, routage, Dev/Test/QA, références, non-perte et
+  publication sans divulgation. Modes fabriquer / refondre / verifier / resynchroniser.
+  Après modification du SKILL.md, vérifier les contrôles applicables avant de dire
+  « prêt ». Ne jamais prétendre avoir appelé un plugin absent.
 ---
 
-# skill-quality-guard — le contrôle final, 7 axes
+# skill-quality-guard — fabriquer, refondre, vérifier et resynchroniser une compétence
+
+## Une seule responsabilité, quatre modes
+
+Cette compétence est **le propriétaire de l'intervention sur une compétence individuelle**.
+Elle ne se limite pas à relire une checklist : elle conduit une création, une refonte,
+une vérification ou une resynchronisation de copie publique, puis rend un verdict.
+Le `/skill-cleaner` s'occupe de **l'organisation d'un parc** ; `/optimise-systeme`
+coordonne les améliorations touchant plusieurs éléments du système.
+
+| Demande | Mode | Contrat |
+| --- | --- | --- |
+| « Crée une compétence » / « crée une famille » | **Fabriquer** | Lire [`references/fabriquer-une-competence.md`](references/fabriquer-une-competence.md) |
+| « Reprends / refonds cette compétence » | **Refondre** | Lire [`references/refondre-une-competence.md`](references/refondre-une-competence.md) |
+| « Cette compétence est-elle prête ? » | **Vérifier** | Appliquer les axes actifs ci-dessous |
+| « La copie du plugin est en retard » | **Resynchroniser** | Lire [`references/resynchroniser-une-copie-publiee.md`](references/resynchroniser-une-copie-publiee.md) |
+
+**Chaîne canonique quand un SKILL.md est écrit ou réécrit :**
+1. Appeler le **`skill-creator` officiel d'Anthropic** pour concevoir, éditer et
+   tester la compétence (y compris évaluer ses déclencheurs). Son installation
+   dépend du plugin officiel `skill-creator@claude-plugins-official`.
+2. Dans cette compétence, décider de la responsabilité distincte, de son propriétaire,
+   de son niveau, de son nom, de ses renvois et de ses conditions d'exécution.
+   Si la compétence appartient à une famille, traiter les dépendances ensemble,
+   sans créer de doublons.
+3. Appliquer les contrôles ci-dessous et les tests du propriétaire ; vérifier les
+   copies publiques concernées **dans la même intervention**, sans recopier de
+   données personnelles dans le pack.
+4. Rendre `FAIT / BLOQUÉ / NON EXÉCUTÉ` avec chemins réellement touchés, preuves
+   lancées, résultat des essais, capacité éventuellement non vérifiée et suite.
+
+Si `skill-creator` est absent, **signaler la dépendance** et expliquer ce qui
+ne peut pas être évalué ; un audit statique ne tient pas lieu d'essai comportemental.
+Ne jamais déclarer « évalué » ou « prêt » sans exécution des contrôles prévus.
+
+## Vérifications d'intégration — rubriques historiques 1 à 7
 
 **Principe fondamental** : une compétence bien construite s'organise selon une **taxonomie
 structurée par concepts**, pas en tas chronologique ni en accumulation de correctifs. À chaque
@@ -22,45 +58,15 @@ chose la conduit et la nomme, **et celui-ci la refuse ou la laisse passer**.
 
 ---
 
-## Axe 1 — POIDS
+## Axe 1 — Poids : seuil historique retiré
 
-**Cible : moins de 500 lignes.** Au-delà, la compétence pollue le contexte à **chaque** invocation,
-pour toujours.
-
-```bash
-wc -l SKILL.md
-```
-
-Au-dessus, identifier ce qui s'externalise :
-
-| Ce qui déborde | Où ça descend |
-|---|---|
-| tables de sélecteurs, d'identifiants, de valeurs par environnement | un fichier de référence par environnement |
-| spécifications fonctionnelles détaillées | la documentation du produit |
-| matrices transverses de plus de 20 lignes | un fichier de référence dédié |
-| scripts de plus de 50 lignes | `scripts/`, chargé à la demande — pas en ligne |
-| exemples longs, journaux annotés, jurisprudence datée | `references/` |
-
-**Le bon geste** : le `SKILL.md` dit *« lis `references/x.md` § 2 »*, il ne recopie pas le § 2.
-
-### La méthode d'allègement — 4 gestes
-
-1. **Une annexe sous le MÊME propriétaire** : `<compétence>/references/<sujet>.md`. **Jamais une
-   deuxième compétence** — un sujet, un propriétaire, un point d'entrée. Y descendent l'historique
-   daté, les dossiers d'instruction, la jurisprudence : tout ce qui se consulte quand on doute, pas
-   à chaque invocation.
-2. **Ce qui RESTE** : la règle, l'interdit, l'ordre à respecter, le pointeur. Le test : *un lecteur
-   pressé garde-t-il tout l'opérationnel ?*
-3. **PROUVER la non-perte** : sonder des chaînes retirées et vérifier qu'elles existent d'un côté ou
-   de l'autre. Sans cette preuve, **alléger est indistinguable de perdre** — et l'archive a l'air
-   d'un geste sain, c'est ce qui la rend dangereuse.
-4. ⚠️ **VÉRIFIER AVANT DE COUPER — le geste que tout le monde saute.** Le bloc qui ressemble le plus
-   à un doublon n'en est pas forcément un. *Mesuré : 55 lignes candidates parfaites à la coupe, avec
-   une documentation de 345 lignes sur le même sujet à côté. Elles ne recopiaient rien : elles
-   **pointaient** vers elle et portaient des décisions absentes partout ailleurs.*
-   Le contrôle : *ce bloc RECOPIE-t-il, ou POINTE-t-il ?*
-
----
+Il n'existe **aucun plafond fixe de lignes pour déclarer une compétence valide**.
+Le critère est la disponibilité de l'information au moment d'agir : les étapes
+indispensables restent dans le `SKILL.md`, les dossiers volumineux et le détail
+réservé aux cas particuliers vivent dans des références nommées et réellement
+pointées. Les déplacements exigent une preuve de non-perte. Ne pas réduire une
+compétence uniquement pour atteindre un quota. Ce retrait est intentionnel ;
+les six autres rubriques ci-dessous continuent de s'appliquer.
 
 ## Axe 2 — STRUCTURE
 
@@ -272,7 +278,7 @@ jamais « nul ». Le rendu doit écrire cette frontière, sinon la conclusion vo
 
 ## Fini quand
 
-Les 7 axes passent, ou l'écart est **déclaré avec sa raison**. Un axe muet compte comme un échec.
+Les rubriques actives (2 à 7), les tests adaptés à la modification et la preuve de non-perte passent, ou chaque écart est **déclaré avec sa raison**. La rubrique 1 est retirée et ne doit pas redevenir un seuil de poids. Une dépendance Anthropic non disponible est signalée comme non évaluée, pas présentée comme un succès.
 ---
 
 <!-- dev-qa-link -->

@@ -1,12 +1,13 @@
 ---
 name: clean-rules-cleanup
 description: >-
-  L'outil unique pour créer, modifier, supprimer et réorganiser les règles d'un agent — aucune
-  écriture de règle ne se fait sans passer par ici. L'invoquer avant toute édition ou demande
-  « ajoute, grave, nettoie, compresse ou optimise les règles », et pour auditer un parc de
-  compétences. Au lancement, il rend le corpus caché navigable pour l'utilisateur : ce qui aide,
-  ce qui gêne, ce qui est toujours chargé et où gagner réellement de la place. Modes : nettoyage
-  en 4 phases, audit du parc, création guidée d'une règle.
+  Quand il faut créer, modifier, supprimer, déplacer, expliquer ou contrôler
+  une règle d'agent, traiter sa portée, son niveau et son motif avant écriture.
+  S'applique aux règles des fichiers de projet, des compétences et des mémoires
+  concernées. Propriétaire aussi de l'inventaire, du coût et de l'entretien
+  des hooks (avec accord explicite avant toute modification).
+  Modes : nouvelle règle, nettoyage, revue des hooks. Pour trier, fusionner
+  ou archiver des compétences entières, appeler /skill-cleaner.
 ---
 
 # clean-rules-cleanup — écrire, alléger et ranger les règles
@@ -190,34 +191,32 @@ finie.
 
 ---
 
-## §3bis — Mode AUDIT DU PARC : les compétences
+## §3bis — Frontière avec la revue du parc de compétences
 
-Même structure en 4 phases, appliquée à un parc de compétences devenu trop gros ou incohérent.
+Une règle peut vivre dans un `SKILL.md` : **cette compétence en possède
+l'écriture, la raison et la portée**. En revanche, classer une compétence
+entière (garder, fusionner, déplacer, archiver, comparer ses déclencheurs
+ou ses responsabilités) appartient à `/skill-cleaner`.
 
-**Phase 1 — Carte utilisateur, puis inventaire complet** : rendre d'abord la carte définie au lancement ; ensuite chaque compétence, son niveau, son propriétaire, sa taille, qui
-la cite, qui elle cite.
+Lorsque la refonte d'une règle implique aussi une refonte de la méthode
+d'un `SKILL.md`, transmettre à `/skill-quality-guard`, qui appelle le
+`skill-creator` officiel d'Anthropic pour l'écriture et les évaluations.
+Ne pas réimplémenter leur démarche ici.
 
-**Phase 2 — Une décision par compétence** : garder · renommer · fusionner avec une autre · déplacer
-de niveau · archiver.
+## §3ter — Hooks : même propriétaire que les règles
 
-Les signaux qui décident :
+Un hook peut rendre un contrôle automatique, mais il peut aussi introduire
+du coût, des faux refus et des effets que l'utilisateur n'a pas demandés.
+Lire [`references/gerer-les-hooks.md`](references/gerer-les-hooks.md)
+pour inventorier les hooks, distinguer rappel et refus, estimer leur
+fréquence et vérifier leur utilité.
 
-- **elle fait deux choses** → la couper ;
-- **elle double une voisine** → fusionner, et la survivante **NOMME** ce qu'elle absorbe ;
-- **personne ne la cite et elle ne cite personne** → orpheline, elle ne se déclenchera jamais ;
-- **son nom ne dit pas ce qu'elle fait** → renommer, avec un outil qui refuse de finir sur une
-  référence morte.
-
-⚠️ **À la fin de toute absorption, deux oui obligatoires** : la survivante **nomme** ce qu'elle
-absorbe, **et** le dossier absorbé a disparu. *Mesuré : une fusion déclarée dans quatre fichiers
-voisins mais pas chez la survivante, et dont le dossier n'avait jamais été supprimé — la compétence
-morte a continué à se charger et à concourir six jours de plus.* **Une déclaration chez les voisins
-prouve qu'on a pensé au geste ; elle ne prouve pas qu'on l'a fini.**
-
-**Phase 3 et 4** : identiques — réversible en autonomie, non-perte prouvée, archive datée et
-consultable.
-
----
+**Avant tout ajout, modification ou retrait de hook**, présenter l'effet,
+la fréquence, les données reçues et le coût estimé ; obtenir l'accord
+explicite de l'utilisateur, même si le changement est réversible.
+Les autres compétences peuvent **proposer** un hook mais n'en deviennent
+pas propriétaires. Une demande de création de règle ne signifie pas
+qu'un hook est autorisé.
 
 ## §4 — Mode NOUVELLE RÈGLE
 

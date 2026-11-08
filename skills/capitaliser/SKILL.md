@@ -122,6 +122,18 @@ compétence donnent un modèle possible :
 Ces annexes sont **des patrons**, pas des prérequis. Un utilisateur non-développeur peut utiliser
 `/capitaliser` sans adopter cette arborescence.
 
+## Livrables à retrouver, distincts des apprentissages
+
+Une correction peut produire deux objets : **une méthode durable** et un **livrable**
+(fichier, vidéo, image, document, exécution, rapport). Ne pas confondre les deux.
+
+Quand le travail crée un fichier qu'une autre session devra retrouver, utiliser
+le registre d'artefacts existant chez le propriétaire du projet. Conserver
+au minimum son objet, son adresse, sa nature et son mode de conservation
+(versionné, partagé ou seulement local). Si aucun registre n'existe,
+proposer une adresse stable plutôt que déclarer l'artefact « mémorisé ».
+Une entrée de registre ne remplace jamais le fichier lui-même.
+
 ## 5. Propager ce que l'apprentissage rend faux
 
 Après l'écriture, demander :
