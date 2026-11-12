@@ -1,5 +1,5 @@
 ---
-name: router-entretien-systeme
+name: router-entretenir-son-systeme
 description: >-
   Porte d'entrée du Claude Code System Pack : quand un agent répète une erreur corrigée,
   que les règles gonflent, que les compétences se contredisent, qu'une modification
@@ -14,7 +14,7 @@ metadata:
   consumes: "description du symptôme, surfaces de règles, résultats et preuves des compétences"
 ---
 
-# router-entretien-systeme — une porte, cinq propriétaires
+# router-entretenir-son-systeme — une porte, cinq propriétaires
 
 **Rôle unique :** traduire un symptôme en propriétaire(s), puis transmettre le contexte
 nécessaire à chacun. Ce routeur ne nettoie aucune règle, ne mesure aucun système,

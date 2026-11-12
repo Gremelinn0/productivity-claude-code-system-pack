@@ -25,9 +25,9 @@ déjà.
 
 ---
 
-## La porte du pack — `/router-entretien-systeme`
+## La porte du pack — `/router-entretenir-son-systeme`
 
-Le routeur [`router-entretien-systeme`](skills/router-entretien-systeme/SKILL.md) identifie le
+Le routeur [`router-entretenir-son-systeme`](skills/router-entretenir-son-systeme/SKILL.md) identifie le
 **symptôme**, choisit l'une des cinq compétences ci-dessous et transmet son contexte.
 Il ne fusionne pas leurs méthodes et n'exécute pas lui-même les changements.
 
@@ -39,7 +39,7 @@ Il ne fusionne pas leurs méthodes et n'exécute pas lui-même les changements.
 | Une compétence créée ou modifiée doit être validée | `/skill-quality-guard` |
 | Une page ou une carte humaine décrit encore l'ancien système | `/propage-systeme` |
 
-Invoquer `/router-entretien-systeme` pour une demande transversale ou directement
+Invoquer `/router-entretenir-son-systeme` pour une demande transversale ou directement
 la compétence dédiée quand son propriétaire est connu. En cas de plusieurs gestes,
 le routeur appelle les propriétaires dans l'ordre, puis rapporte ce qui a
 **réellement été vérifié**, sans inventer de mesure.
@@ -75,7 +75,7 @@ Prises une par une, ce sont cinq outils. Prises ensemble, c'est un cycle de vie.
 /plugin install claude-code-system-pack
 ```
 
-Pour une demande transversale, commence par **`/router-entretien-systeme`**. Les cinq propriétaires
+Pour une demande transversale, commence par **`/router-entretenir-son-systeme`**. Les cinq propriétaires
 restent disponibles par leur nom : `/capitaliser`, `/optimise-systeme`, `/clean-rules-cleanup`,
 `/skill-quality-guard`, `/propage-systeme`.
 
@@ -83,7 +83,7 @@ Chacune se déclenche aussi toute seule sur ce que tu écris — « le système 
 « ajoute cette règle », « on répète toujours la même chose ». C'est le rôle de leur `description:`,
 et c'est pour ça que le pack en soigne la rédaction plutôt que la longueur.
 
-> **Version 0.4.0** — ajout de `router-entretien-systeme` : porte d'aiguillage sans copie des cinq
+> **Version 0.4.0** — ajout de `router-entretenir-son-systeme` : porte d'aiguillage sans copie des cinq
 > méthodes. **Migration 0.3.0** — `dev-capitaliser` s'appelle désormais **`capitaliser`**. Le geste public
 > est volontairement transversal : il adapte sa preuve et sa destination à l'environnement au lieu
 > de supposer un projet de développement.

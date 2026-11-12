@@ -12,7 +12,7 @@
     {
       "name": "claude-code-system-pack",
       "source": "./",
-      "description": "Cinq gestes et une porte : capitaliser une leçon, mesurer le système, écrire une règle qui porte son contrôle, contrôler une compétence, propager un changement partout ; /router-entretien-systeme dit lequel appeler pour quel symptôme.",
+      "description": "Cinq gestes et une porte : capitaliser une leçon, mesurer le système, écrire une règle qui porte son contrôle, contrôler une compétence, propager un changement partout ; /router-entretenir-son-systeme dit lequel appeler pour quel symptôme.",
       "category": "productivity"
     }
   ]
