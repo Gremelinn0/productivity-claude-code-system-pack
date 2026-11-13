@@ -1,148 +1,123 @@
 # Claude Code System Pack
 
 **Trois commandes au quotidien, trois spécialistes et un routeur facultatif.**
-Pour entretenir les compétences, les règles et le système d'un agent après un retour concret.
+Entretenir le savoir, les règles et les compétences d'un agent après un travail réel.
+Développement, rédaction, recherche, marketing, CRM et opérations : la méthode s'adapte
+aux sources et aux outils disponibles, pas l'inverse.
 
----
+> **Branche candidate — validation en cours.** Cette refonte n'est pas encore la version
+> distribuée depuis `main`. Les tests documentaires et mécaniques ne prouvent pas à eux
+> seuls l'installation ni le comportement dans une session neuve. État et limites :
+> [audit de capitalisation](docs/audit-capitaliser-2026-11-13.md).
 
-## Le problème
+## Choisir la bonne entrée
 
-Un agent qu'on utilise sérieusement finit par accumuler des instructions. Une règle par correction,
-une compétence par sujet, un document par décision. Rien de tout ça n'est mauvais pris isolément, et
-c'est exactement ce qui rend le problème invisible.
+| Situation | Commande courte dans cette documentation | Résultat attendu |
+| --- | --- | --- |
+| Un travail produit un acquis ou un livrable à conserver | `/capitaliser` | Le fait, sa raison et le livrable sont retrouvables au bon endroit, avec une preuve de conservation. |
+| Une règle est à créer, corriger ou déplacer | `/clean-rules-cleanup` | La règle vit au bon niveau ; un hook éventuel exige les droits correspondants. |
+| Le système de la tâche devient incohérent ou inefficace | `/optimise-systeme` | Un diagnostic mesuré, puis les corrections autorisées chez leurs propriétaires. |
 
-Trois symptômes, et ils arrivent toujours dans cet ordre :
+Ces entrées ne supposent pas qu'il faut exécuter tout le pack après chaque tâche.
+Une capitalisation peut conclure qu'il n'y a rien de nouveau à écrire. Une optimisation
+commence par le périmètre utile, pas par un audit de tous les projets.
 
-1. **L'agent supporte le désordre — toi, non.** Il lit trois mille lignes de règles sans se
-   plaindre. Toi, tu ne sais plus ce que tu lui as demandé, ni où c'est écrit.
-2. **L'entretien prend plus de temps que le travail.** Chaque compétence qu'on touche oblige à
-   vérifier ce qu'elle rend faux ailleurs — et on le fait à la main, à chaque fois.
-3. **On répète sans arrêt les mêmes instructions.** Parce qu'une leçon apprise en session ne va
-   nulle part : elle meurt avec la conversation.
+## Les spécialistes
 
-Ce pack n'ajoute pas d'instructions. Il donne les **gestes qui entretiennent** celles que tu as
-déjà.
-
----
-
-## Une porte facultative — `/router-entretien-systeme`
-
-Le routeur [`router-entretien-systeme`](skills/router-entretien-systeme/SKILL.md) identifie le
-**symptôme**, choisit l'un des six responsables et transmet son contexte.
-Il ne fusionne pas leurs méthodes et n'exécute pas lui-même les changements.
-
-| Tu observes… | Première compétence |
-|---|---|
-| L'agent refait une erreur déjà corrigée | `/capitaliser` |
-| Des règles gonflent ou s'entassent | `/clean-rules-cleanup` |
-| Des compétences se contredisent ; tu veux mesurer avant d'optimiser | `/optimise-systeme` |
-| Une compétence doit être créée, refondue ou vérifiée | `/skill-quality-guard` |
-| Plusieurs compétences doublonnent ou sont mal rangées | `/skill-cleaner` |
-| Une page ou une carte humaine décrit encore l'ancien système | `/propage-systeme` |
-
-Les trois commandes quotidiennes s'invoquent directement. Le routeur aide à choisir le spécialiste pour une demande transversale. En cas de plusieurs gestes,
-le routeur appelle les propriétaires dans l'ordre, puis rapporte ce qui a
-**réellement été vérifié**, sans inventer de mesure.
-
----
-
-## Les compétences
-
-| Commande | Responsabilité |
+| Compétence | Responsabilité |
 | --- | --- |
-| `/capitaliser` | Transformer les apprentissages et livrables en savoir retrouvable. |
-| `/clean-rules-cleanup` | Créer et entretenir les règles et, sur autorisation, les hooks. |
-| `/optimise-systeme` | Améliorer le système de la tâche en cours et orchestrer les spécialistes ; revue complète sur demande. |
-| `/skill-cleaner` | Ranger, comparer, fusionner ou archiver les compétences d'un parc avec preuve de non-perte. |
-| `/skill-quality-guard` | Fabriquer, refondre, vérifier et resynchroniser une compétence avec `skill-creator` d'Anthropic. |
-| `/propage-systeme` | Actualiser toutes les sources que le changement rend fausses. |
+| `/skill-cleaner` | Comparer, ranger, fusionner ou archiver les compétences d'un parc, avec conservation et migration des appelants. |
+| `/skill-quality-guard` | Fabriquer, refondre, vérifier et resynchroniser une compétence ; utiliser le `skill-creator` officiel quand il est disponible. |
+| `/propage-systeme` | Actualiser les consommateurs et les surfaces humaines que le changement rend faux. |
+| `/router-entretien-systeme` | Choisir le bon propriétaire à partir du symptôme, sans recopier sa méthode. Entrée facultative. |
 
-Les trois premières sont les **entrées quotidiennes**. Les autres sont des
-spécialistes appelés selon la nature de l'intervention.
+Il y a **six propriétaires de travail et un routeur** dans cette candidate. Le nombre de
+cartes d'un ancien post ne constitue pas l'inventaire du pack. Le contrat de responsabilités
+est dans [docs/contrat-capacites.md](docs/contrat-capacites.md).
 
-Une copie distribuée conserve **les mêmes responsabilités et capacités** que
-sa source. Seuls les détails propres à un environnement sont adaptés.
+## Capitaliser sans être développeur
 
-## Installation
+La compétence distingue le propriétaire, le support de conservation et le point où le
+savoir sera réellement chargé. Une décision rejoint sa source ; une donnée client reste
+sur sa fiche ; une leçon transversale rejoint la méthode ; un fichier produit reste
+attaché au projet ou à son registre existant.
 
-```bash
+Elle ne prétend pas entraîner le modèle. Sans stockage accessible, elle indique
+**NON PERSISTÉ**. Une propagation inachevée donne **PARTIEL**, pas « terminé ».
+Git, Python et une arborescence de compétences ne sont pas imposés à un utilisateur de wiki
+ou de CRM. Les adaptations locales précisent les adresses et les outils, sans constituer
+une deuxième méthode. La copie publique conserve les capacités du cœur commun ; elle ne
+contient ni les données privées ni les destinations personnelles de sa source.
+
+## Installation et invocation
+
+Les commandes suivantes installent la version distribuée de `main`, pas automatiquement
+cette branche candidate :
+
+```text
 /plugin marketplace add Gremelinn0/productivity-claude-code-system-pack
-```
-
-```bash
 /plugin install claude-code-system-pack
 ```
 
-Commence par **`/capitaliser`**, **`/clean-rules-cleanup`** ou **`/optimise-systeme`**, selon le besoin. Pour une demande transversale, `/router-entretien-systeme` reste une entrée facultative. Les trois spécialistes `/skill-cleaner`, `/skill-quality-guard` et `/propage-systeme` sont aussi invocables directement.
+Dans une installation plugin, utiliser le nom qualifié présenté par le catalogue :
 
-Chacune se déclenche aussi toute seule sur ce que tu écris — « le système est en bordel »,
-« ajoute cette règle », « on répète toujours la même chose ». C'est le rôle de leur `description:`,
-et c'est pour ça que le pack en soigne la rédaction plutôt que la longueur.
+```text
+/claude-code-system-pack:capitaliser
+/claude-code-system-pack:clean-rules-cleanup
+/claude-code-system-pack:optimise-systeme
+```
 
-> **Version 0.4.0** — ajout de `router-entretien-systeme` : porte d'aiguillage sans copie des méthodes. **Migration 0.3.0** — `dev-capitaliser` s'appelle désormais **`capitaliser`**. Le geste public
-> est volontairement transversal : il adapte sa preuve et sa destination à l'environnement au lieu
-> de supposer un projet de développement.
+Les noms courts des tableaux désignent les compétences ; ils peuvent différer des noms
+exposés par l'hôte. Le `description` aide l'agent à les sélectionner : ce n'est pas une
+garantie de déclenchement à chaque formulation. Vérifier la découverte et l'invocation
+dans une session neuve après installation.
 
----
+Sources officielles : [skills Claude Code](https://code.claude.com/docs/en/skills) et
+[installation des plugins](https://code.claude.com/docs/en/discover-plugins).
 
-## 🌍 Portabilité
+## Dépendances et limites
 
-Ces compétences décrivent des **méthodes**, pas une configuration. Elles ne supposent ni ton
-système d'exploitation, ni ton arborescence, ni tes autres compétences. Voici tout de même ce qu'il
-faut savoir avant de les lancer.
+- La méthode exige seulement les accès nécessaires aux sources du travail, dans le mandat.
+- Les contrôles Python fournis sont des outils à exécuter, pas des hooks installés silencieusement.
+- `capitaliser/scripts/verification.py` utilise Python 3.10+ et sa bibliothèque standard.
+  Le contrôle YAML strict et les outils qui importent `yaml` utilisent PyYAML ; la CI fixe
+  `PyYAML==6.0.3`. Une dépendance manquante signifie contrôle non exécuté.
+- Les essais sur documents locaux ne prouvent pas ceux d'un connecteur, d'un CRM ou d'un
+  autre système d'exploitation. Ne pas déduire une compatibilité runtime d'un import Python.
+- Les opérations externes, dépenses, modifications de droits et changements de production
+  exigent leur autorisation propre. Mémoriser une décision ne l'exécute pas automatiquement.
 
-| | Ce que c'est | Ce que tu dois savoir |
-|---|---|---|
-| **Prérequis** | Claude Code, et un dossier de compétences (`~/.claude/skills/` ou `.claude/skills/` dans ton projet) | rien à installer de plus |
-| **Le code fourni** | un extrait Python dans `optimise-systeme` (lisibilité des `description:`, nécessite `pyyaml`) et deux scripts en bibliothèque standard : `clean-rules-cleanup/scripts/registre.py` (le registre des motifs) et `propage-systeme/scripts/derive_bloc.py` (une règle vit une fois, ses copies sont dérivées et contrôlées) | chacun a son `--self-test` ; tout le reste marche sans |
-| **Chemins** | `skills/*/SKILL.md` et `~/.claude/skills/*/SKILL.md` | ce sont les emplacements standards ; adapte si tu ranges ailleurs |
-| **Système** | testé sous Windows, écrit sans dépendance système | l'extrait Python utilise `expanduser`, donc il marche aussi sous macOS et Linux |
-| **Tes propres contrôles** | les compétences te disent **quoi** outiller, jamais avec quel outil | à toi d'écrire les tests dans ton langage et ton harnais |
-
-**Ce qui n'est pas fourni, et c'est délibéré** : aucun crochet, aucun test branché sur ton
-harnais. Ces compétences décrivent les contrôles qui valent la peine d'exister chez toi ; elles
-n'imposent pas la forme qu'ils prennent. Un contrôle copié d'un autre projet mesure l'autre projet.
-
----
-
-## Dépendance officielle
-
-Pour fabriquer, refondre et évaluer des compétences, `/skill-quality-guard`
-appelle le `skill-creator` officiel d'Anthropic. Il est à installer à part :
+Pour fabriquer ou évaluer une compétence, la dépendance officielle est séparée :
 
 ```text
 /plugin install skill-creator@claude-plugins-official
 ```
 
-Si cette dépendance est absente, le contrôle le signale et ne prétend
-pas avoir exécuté les évaluations. Le pack ne l'installe pas à l'insu de l'utilisateur.
+Elle n'est ni recopiée ni installée sans autorisation. En son absence, la revue disponible
+est décrite comme telle ; aucune évaluation indépendante n'est inventée.
 
-## Ce que ce pack ne fait pas
+## Vérifications reproductibles
 
-- **Il ne pose pas de garde-fous mécaniques.** Pour l'étage « contrôles qui bloquent », il y a
-  [`claude-code-guardrails`](https://github.com/Gremelinn0/claude-code-guardrails), déjà public. Ce
-  pack ne le recopie pas — les deux se complètent : celui-ci décide **ce qu'il faut** contrôler,
-  l'autre **fait** le contrôle.
-- **Il ne range pas tes compétences à ta place.** Il te dit comment décider, pas quoi décider.
-- **Il ne remplace pas la compétence officielle de création de compétences.** `skill-quality-guard` conduit l'intervention et le contrôle final en appelant l'outil officiel pour la rédaction et les essais.
+Depuis la racine du dépôt candidat :
 
----
+```text
+python -m pip install PyYAML==6.0.3
+python scripts/verifier_pack.py --self-test
+python scripts/verifier_pack.py
+python -m unittest discover -s skills/capitaliser/tests -v
+python skills/capitaliser/scripts/verifier_contrat.py skills/capitaliser
+```
 
-## Un principe partagé par ces compétences
+Le contrôle de non-perte refuse une comparaison vide, une source absente et une archive
+utilisée à la place d'une destination active. Une reformulation déclarée renvoie un état
+**à relire**, pas une certification automatique de son sens.
+Les scénarios de comportement se trouvent dans `skills/capitaliser/evals/evals.json`.
+Leur présence ne prouve pas qu'ils ont été joués.
 
-**Une règle utile porte son contrôle.**
+## Historique et licence
 
-*« Sois rigoureux »* n'est pas une règle, c'est un vœu — personne ne peut savoir en la lisant s'il
-est en train de la violer. *« Avant d'écrire un chiffre d'état : ai-je lancé l'instrument dans cette
-passe ? »* en est une, parce qu'elle se répond **en une seconde, sans interprétation**.
+0.3.0 : renommage public de `dev-capitaliser` en `capitaliser`.
+0.4.0 : ajout du routeur d'entretien. Cette branche poursuit la réconciliation des
+responsabilités et des preuves ; aucune nouvelle release n'est annoncée avant réception.
 
-Et la ligne de partage qui suit : ce qui est **décidable** (un lieu, une présence, un format, un
-compte) peut bloquer ; ce qui relève du **jugement** (la qualité, la pertinence, le ton) se montre
-sans trancher. Un contrôle de jugement qui bloque crie au loup, finit désactivé, et emporte les
-décidables avec lui.
-
----
-
-## Licence
-
-MIT.
+Licence MIT. Les sources tierces gardent leurs auteurs et leur distribution d'origine.
