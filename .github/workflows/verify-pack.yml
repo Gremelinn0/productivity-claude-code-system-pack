@@ -2,7 +2,7 @@ name: Vérification du Claude Code System Pack
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: [main, gpt/entretien-systeme-parite-20261029]
   workflow_dispatch:
 permissions:
   contents: read
