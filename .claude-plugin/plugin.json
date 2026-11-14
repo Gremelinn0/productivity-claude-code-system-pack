@@ -1,6 +1,6 @@
 {
   "name": "claude-code-system-pack",
-  "description": "Cinq compétences propriétaires avec router-entretien-systeme en porte d'entrée : capitaliser les leçons, mesurer avant d'optimiser, nettoyer les règles, auditer la qualité des compétences et propager les décisions dans les surfaces réellement lues. Le routeur choisit l'ordre sans fusionner leurs méthodes.",
+  "description": "Deux entrées principales : optimise-systeme conduit l'amélioration d'un système IA existant ; capitaliser intègre les acquis et leurs conséquences. Quatre spécialistes pour les règles, le parc de compétences, leur qualité et la propagation. Router-entretien-systeme reste uniquement un alias de compatibilité.",
   "version": "0.4.0",
   "author": {
     "name": "Florent Maisoncelle"

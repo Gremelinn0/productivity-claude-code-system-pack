@@ -10,7 +10,7 @@ REQUIRED = {
     'skill-quality-guard': ('fabriquer', 'refondre', 'vérifier', 'resynchroniser', 'skill-creator'),
     'optimise-systeme': ('skill-cleaner', 'capitaliser', 'propage-systeme'),
     'clean-rules-cleanup': ('gerer-les-hooks.md', 'skill-cleaner'),
-    'router-entretien-systeme': ('skill-cleaner', 'optimise-systeme'),
+    'router-entretien-systeme': ('optimise-systeme',),
 }
 
 
@@ -45,7 +45,10 @@ def inspect(root):
         f = skills / name / 'SKILL.md'
         try:
             text = f.read_text(encoding='utf-8')
-            metadata(text, name)
+            data = metadata(text, name)
+            if name == 'router-entretien-systeme':
+                if data.get('metadata', {}).get('role') != 'compatibility-alias' or data.get('metadata', {}).get('canonical') != 'optimise-systeme':
+                    issues.append('router-entretien-systeme: alias incorrect')
             for token in REQUIRED.get(name, ()):
                 if token not in text: issues.append(f'{name}: route ou rôle déclaré absent : {token}')
         except Exception as exc: issues.append(f'{name}: {exc}')

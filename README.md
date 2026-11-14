@@ -1,123 +1,115 @@
 # Claude Code System Pack
 
-**Trois commandes au quotidien, trois spécialistes et un routeur facultatif.**
-Entretenir le savoir, les règles et les compétences d'un agent après un travail réel.
-Développement, rédaction, recherche, marketing, CRM et opérations : la méthode s'adapte
-aux sources et aux outils disponibles, pas l'inverse.
+**Deux commandes principales, quatre spécialistes.**
+Améliorer un système IA existant et intégrer ce que le travail lui apprend, en développement
+comme en recherche, rédaction, marketing, CRM et opérations.
 
-> **Branche candidate — validation en cours.** Cette refonte n'est pas encore la version
-> distribuée depuis `main`. Les tests documentaires et mécaniques ne prouvent pas à eux
-> seuls l'installation ni le comportement dans une session neuve. État et limites :
-> [audit de capitalisation](docs/audit-capitaliser-2026-11-13.md).
+> **Candidate en cours de réception, pas nouvelle release.** Cette branche n'est pas la version
+> installée depuis `main`. Le numéro de distribution reste 0.4.0 jusqu'à réception et promotion.
+> Les tests documentaires et Python ne prouvent ni la découverte naturelle ni le comportement
+> dans une session neuve. État de migration : [deux entrées](docs/migration-deux-entrees.md).
 
-## Choisir la bonne entrée
+## Les deux commandes à connaître
 
-| Situation | Commande courte dans cette documentation | Résultat attendu |
+| Commande | La question de départ | Responsabilité |
 | --- | --- | --- |
-| Un travail produit un acquis ou un livrable à conserver | `/capitaliser` | Le fait, sa raison et le livrable sont retrouvables au bon endroit, avec une preuve de conservation. |
-| Une règle est à créer, corriger ou déplacer | `/clean-rules-cleanup` | La règle vit au bon niveau ; un hook éventuel exige les droits correspondants. |
-| Le système de la tâche devient incohérent ou inefficace | `/optimise-systeme` | Un diagnostic mesuré, puis les corrections autorisées chez leurs propriétaires. |
+| `/optimise-systeme` | Que changer pour mieux atteindre notre objectif ? | Comprendre le système, diagnostiquer, comparer les options, faire réaliser les changements et vérifier leur effet. |
+| `/capitaliser` | Comment intégrer ce que nous venons d'apprendre ? | Retrouver le propriétaire et l'antécédent, conserver le fait et sa raison, traiter les conséquences et garder les livrables retrouvables. |
 
-Ces entrées ne supposent pas qu'il faut exécuter tout le pack après chaque tâche.
-Une capitalisation peut conclure qu'il n'y a rien de nouveau à écrire. Une optimisation
-commence par le périmètre utile, pas par un audit de tous les projets.
+L'optimisation n'est pas un grand ménage obligatoire. Elle peut ajouter une capacité manquante,
+fiabiliser une reprise, améliorer la répartition du travail ou réduire l'effort humain.
+La mesure porte sur le résultat recherché, pas uniquement sur le nombre de fichiers supprimés.
 
-## Les spécialistes
+La capitalisation n'est pas un simple résumé. Elle peut corriger une règle ou une méthode
+localisée, mais ne déclenche pas une refonte générale. Le tri d'impact et le rangement sont une
+seule passe. L'optimisation se clôt par une capitalisation, pas par deux pilotes qui se rappellent.
+
+## Quatre spécialistes, toujours accessibles directement
 
 | Compétence | Responsabilité |
 | --- | --- |
-| `/skill-cleaner` | Comparer, ranger, fusionner ou archiver les compétences d'un parc, avec conservation et migration des appelants. |
-| `/skill-quality-guard` | Fabriquer, refondre, vérifier et resynchroniser une compétence ; utiliser le `skill-creator` officiel quand il est disponible. |
-| `/propage-systeme` | Actualiser les consommateurs et les surfaces humaines que le changement rend faux. |
-| `/router-entretien-systeme` | Choisir le bon propriétaire à partir du symptôme, sans recopier sa méthode. Entrée facultative. |
+| `/clean-rules-cleanup` | Créer, corriger, retirer et placer les règles ; examiner leurs mécanismes d'application. Les hooks gardent leur autorisation explicite. |
+| `/skill-cleaner` | Organiser, comparer, fusionner ou déplacer les compétences du parc sans perdre les capacités ni casser leurs appelants. |
+| `/skill-quality-guard` | Fabriquer, refondre, vérifier et resynchroniser une compétence, avec les outils de création et d'évaluation disponibles. |
+| `/propage-systeme` | Mettre à jour les consommateurs et les supports humains qu'un changement connu rend faux. |
 
-Il y a **six propriétaires de travail et un routeur** dans cette candidate. Le nombre de
-cartes d'un ancien post ne constitue pas l'inventaire du pack. Le contrat de responsabilités
-est dans [docs/contrat-capacites.md](docs/contrat-capacites.md).
+Une demande précise peut aller directement à son spécialiste. Il n'est pas nécessaire de lancer
+les six compétences après chaque tâche. Le système métier garde son opérateur, sa carte, son plan
+et ses sources ; le pack ne recopie pas son état dans une compétence globale.
 
-## Capitaliser sans être développeur
+La [carte des responsabilités](skills/optimise-systeme/references/responsabilites.md) définit les
+frontières. La création d'un système entièrement neuf reste un parcours distinct.
 
-La compétence distingue le propriétaire, le support de conservation et le point où le
-savoir sera réellement chargé. Une décision rejoint sa source ; une donnée client reste
-sur sa fiche ; une leçon transversale rejoint la méthode ; un fichier produit reste
-attaché au projet ou à son registre existant.
+## Un ancien nom conservé, pas une troisième porte
 
-Elle ne prétend pas entraîner le modèle. Sans stockage accessible, elle indique
-**NON PERSISTÉ**. Une propagation inachevée donne **PARTIEL**, pas « terminé ».
-Git, Python et une arborescence de compétences ne sont pas imposés à un utilisateur de wiki
-ou de CRM. Les adaptations locales précisent les adresses et les outils, sans constituer
-une deuxième méthode. La copie publique conserve les capacités du cœur commun ; elle ne
-contient ni les données privées ni les destinations personnelles de sa source.
+`/router-entretien-systeme` est désormais un alias de `/optimise-systeme`, sans méthode propre.
+Il reste invocable le temps de migrer les anciens appels. Le pack contient donc **six propriétaires
+et un alias de compatibilité**, pas sept rôles équivalents. Les anciens noms privés mentionnés dans
+la documentation ne sont pas ajoutés comme nouvelles compétences distribuées.
 
-## Installation et invocation
+## Utilisation et limites
 
-Les commandes suivantes installent la version distribuée de `main`, pas automatiquement
-cette branche candidate :
+Les deux méthodes s'adaptent aux sources et outils accessibles. Pas de Git ou d'arborescence
+imposés à un utilisateur de wiki ou de CRM. Une adaptation locale précise les destinations,
+les droits et les dépendances ; elle ne retire pas les capacités du cœur commun.
+
+Une source en lecture seule reste en lecture seule. Mémoriser une décision n'autorise pas un envoi,
+un changement de production, une nouvelle routine ou une publication. Sans stockage vérifié,
+`capitaliser` rend **NON PERSISTÉ** ; avec un reste réel, **PARTIEL**. Un modèle n'est pas entraîné
+par cette opération et une mémoire automatique n'est pas garantie.
+
+## Installation
+
+Ces commandes installent la version distribuée depuis `main`, pas cette candidate :
 
 ```text
 /plugin marketplace add Gremelinn0/productivity-claude-code-system-pack
 /plugin install claude-code-system-pack
 ```
 
-Dans une installation plugin, utiliser le nom qualifié présenté par le catalogue :
+Dans une installation plugin, utiliser le nom qualifié exposé par le catalogue, par exemple :
 
 ```text
-/claude-code-system-pack:capitaliser
-/claude-code-system-pack:clean-rules-cleanup
 /claude-code-system-pack:optimise-systeme
+/claude-code-system-pack:capitaliser
 ```
 
-Les noms courts des tableaux désignent les compétences ; ils peuvent différer des noms
-exposés par l'hôte. Le `description` aide l'agent à les sélectionner : ce n'est pas une
-garantie de déclenchement à chaque formulation. Vérifier la découverte et l'invocation
-dans une session neuve après installation.
+Vérifier le catalogue de l'hôte et l'invocation après installation. Une description facilite
+la sélection ; elle n'en garantit pas le déclenchement dans toute formulation.
 
-Sources officielles : [skills Claude Code](https://code.claude.com/docs/en/skills) et
-[installation des plugins](https://code.claude.com/docs/en/discover-plugins).
+Pour fabriquer/évaluer une compétence, le `skill-creator` officiel est une dépendance séparée,
+à résoudre dans le catalogue courant. Le pack ne le recopie et ne l'installe pas silencieusement.
+Une dépendance absente est signalée ; aucun appel ni essai indépendant n'est inventé.
 
-## Dépendances et limites
+## Contrôles reproductibles
 
-- La méthode exige seulement les accès nécessaires aux sources du travail, dans le mandat.
-- Les contrôles Python fournis sont des outils à exécuter, pas des hooks installés silencieusement.
-- `capitaliser/scripts/verification.py` utilise Python 3.10+ et sa bibliothèque standard.
-  Le contrôle YAML strict et les outils qui importent `yaml` utilisent PyYAML ; la CI fixe
-  `PyYAML==6.0.3`. Une dépendance manquante signifie contrôle non exécuté.
-- Les essais sur documents locaux ne prouvent pas ceux d'un connecteur, d'un CRM ou d'un
-  autre système d'exploitation. Ne pas déduire une compatibilité runtime d'un import Python.
-- Les opérations externes, dépenses, modifications de droits et changements de production
-  exigent leur autorisation propre. Mémoriser une décision ne l'exécute pas automatiquement.
-
-Pour fabriquer ou évaluer une compétence, la dépendance officielle est séparée :
-
-```text
-/plugin install skill-creator@claude-plugins-official
-```
-
-Elle n'est ni recopiée ni installée sans autorisation. En son absence, la revue disponible
-est décrite comme telle ; aucune évaluation indépendante n'est inventée.
-
-## Vérifications reproductibles
-
-Depuis la racine du dépôt candidat :
+Python 3.10+ pour les scripts, PyYAML pour les contrôles YAML. Depuis ce dépôt candidat :
 
 ```text
 python -m pip install PyYAML==6.0.3
 python scripts/verifier_pack.py --self-test
 python scripts/verifier_pack.py
 python -m unittest discover -s skills/capitaliser/tests -v
+python -m unittest discover -s skills/optimise-systeme/tests -v
+python skills/optimise-systeme/scripts/verifier_orchestration.py --root skills
 python skills/capitaliser/scripts/verifier_contrat.py skills/capitaliser
+python skills/capitaliser/scripts/verifier_contrat.py skills/optimise-systeme
 ```
 
-Le contrôle de non-perte refuse une comparaison vide, une source absente et une archive
-utilisée à la place d'une destination active. Une reformulation déclarée renvoie un état
-**à relire**, pas une certification automatique de son sens.
-Les scénarios de comportement se trouvent dans `skills/capitaliser/evals/evals.json`.
-Leur présence ne prouve pas qu'ils ont été joués.
+Le contrôle d'orchestration refuse un cycle dans le **graphe déclaré**, une entrée manquante ou
+un alias redevenu propriétaire ; il ne prouve pas les appels réels d'un modèle. Le contrôle de
+non-perte compare la présence textuelle : une reformulation demande encore une revue du sens.
+Le chercheur d'impacts localise des occurrences, pas des contradictions sémantiques.
+
+Les scénarios d'usage sont dans les dossiers `evals/` des deux entrées. Leur présence n'est pas
+un résultat d'évaluation. Installation, usage en session neuve et bénéfice métier sont des
+preuves distinctes des tests ci-dessus.
 
 ## Historique et licence
 
-0.3.0 : renommage public de `dev-capitaliser` en `capitaliser`.
-0.4.0 : ajout du routeur d'entretien. Cette branche poursuit la réconciliation des
-responsabilités et des preuves ; aucune nouvelle release n'est annoncée avant réception.
+0.3.0 : renommage public de dev-capitaliser en capitaliser.
+0.4.0 : ajout historique du routeur d'entretien.
+Candidate actuelle : deux entrées principales et absorption des pilotages concurrents.
+Aucune nouvelle release n'est annoncée avant réception.
 
-Licence MIT. Les sources tierces gardent leurs auteurs et leur distribution d'origine.
+Licence MIT. Les ressources tierces gardent leur distribution et leurs auteurs d'origine.

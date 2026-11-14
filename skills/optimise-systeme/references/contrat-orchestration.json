@@ -1,0 +1,29 @@
+{
+  "schema": "orchestration-v1",
+  "version": "2026-11-14",
+  "entries": ["optimise-systeme", "capitaliser"],
+  "owners": {
+    "optimise-systeme": {"role": "orchestration", "calls": ["capitaliser", "clean-rules-cleanup", "skill-cleaner", "skill-quality-guard", "propage-systeme"]},
+    "capitaliser": {"role": "capitalisation", "calls": ["clean-rules-cleanup", "skill-cleaner", "skill-quality-guard", "propage-systeme"]},
+    "clean-rules-cleanup": {"role": "specialist", "calls": []},
+    "skill-cleaner": {"role": "specialist", "calls": ["skill-quality-guard", "propage-systeme"]},
+    "skill-quality-guard": {"role": "specialist", "calls": []},
+    "propage-systeme": {"role": "specialist", "calls": []}
+  },
+  "aliases": {
+    "router-ameliorer-systeme-ia": "optimise-systeme",
+    "router-entretien-systeme": "optimise-systeme",
+    "router-capitalisation": "capitaliser"
+  },
+  "guards": {
+    "delegates_return_to_caller": true,
+    "reuse_completed_operations": true,
+    "audit_does_not_authorize_mutation": true,
+    "no_automatic_optimizer_callback": true,
+    "no_automatic_new_routine": true,
+    "hooks_need_explicit_authorization": true
+  },
+  "context_resources": ["local_system_map", "local_system_operator", "systeme-ia_if_available"],
+  "creation": "Hand off an entirely new system to the available creation workflow; no nested optimization.",
+  "limits": "Declared orchestration graph only; specialist-internal tools and live model choices require separate execution evidence."
+}

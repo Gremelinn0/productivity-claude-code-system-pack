@@ -1,200 +1,173 @@
 ---
 name: optimise-systeme
 description: >-
-  La méthode objective pour optimiser un système d'agent — les règles, les compétences,
-  l'architecture, la documentation, les cartes. Mesure d'abord (chiffré, jamais à l'oreille),
-  diagnostique, trouve les problèmes réels (doublons, mauvais niveau, gonflement, cartes périmées,
-  rôles mélangés), conçoit le correctif avec ses arbitrages, grave au bon niveau, propage,
-  re-mesure. Elle n'exécute pas à la place des compétences dédiées : elle les orchestre dans
-  l'ordre. Triggers : « optimise le système », « améliore le système », « le système est en
-  bordel », « rends le système plus propre », « on accumule trop de règles », « compacter les
-  règles », « on a trop de compétences », « passe d'optimisation ».
+  Améliorer un système IA existant pour mieux atteindre son objectif : architecture, agents,
+  outils, données, mémoire, contexte, règles, compétences, routines et validation humaine.
+  Partir du résultat recherché, lire la carte locale, diagnostiquer, choisir les changements,
+  faire intervenir les propriétaires, vérifier leur effet et capitaliser les acquis.
+  Utiliser sur « optimise le système », « améliore mes agents », « revois l'architecture »,
+  « rends ce système plus fiable », « réduis le travail manuel » ou un problème transverse.
+  Une intervention ciblée ne lance pas une revue générale ; nettoyer est un moyen, pas le but.
+  Une leçon déjà connue à intégrer relève de /capitaliser ; un système entièrement neuf du
+  parcours de création. Respecter diagnostic seul, permissions et limites du mandat.
+metadata:
+  role: orchestration
+  owns: "l'amélioration du résultat d'un système existant et la coordination de ses changements"
+  scope: "système de travail ou système métier identifié, dev et non-dev"
+  consumes: "objectif, carte locale, état canonique, preuves, contraintes et spécialistes disponibles"
 ---
 
-# optimise-systeme — la méthode objective
+# /optimise-systeme — améliorer le système, pas seulement le ranger
 
-## Usage courant : optimiser le travail en cours
+<!-- capitaliser:squelette-v1 -->
 
-Dans une discussion, partir de la tâche présente et de ses dépendances utiles (skills, règles, contexte, mémoire, fichiers, agents, routines, documentation). Une revue générale n'est lancée que si la demande porte réellement sur un projet entier ou plusieurs dépôts.
+## Résultat et responsabilité
 
-Distinguer la demande d'avis ou de plan de la demande d'exécution. Sur un défaut isolé, mesurer son résultat plutôt que lancer par défaut tout l'inventaire.
+Une seule porte conduit l'amélioration de l'existant. Elle absorbe le pilotage de
+`/router-ameliorer-systeme-ia` et l'aiguillage de `/router-entretien-systeme`.
+Ces anciens noms ne gardent qu'une compatibilité, jamais une méthode concurrente.
 
-### Appels spécialisés
+Le résultat recherché peut être une meilleure qualité, une reprise fiable, moins de travail
+humain, un délai réduit, un coût maîtrisé ou une capacité manquante. Ajouter un agent, une
+règle ou un contrôle peut être juste ; supprimer des fichiers ne prouve aucun gain.
 
-- Apprentissage à conserver : `/capitaliser`.
-- Règle à créer ou modifier, hooks à examiner : `/clean-rules-cleanup`.
-- Parc de compétences à réorganiser ou dédoublonner : `/skill-cleaner`.
-- Compétence à fabriquer, refondre ou vérifier : `/skill-quality-guard`, avec le `skill-creator` officiel d'Anthropic pour l'écriture et les essais.
-- Sources ou pages devenues fausses : `/propage-systeme`.
+Cette compétence garde la responsabilité du résultat et des arbitrages. Les spécialistes
+possèdent leurs méthodes ; les opérateurs métier continuent d'opérer leurs systèmes.
+La carte et les données du système restent chez lui, pas dans cette compétence globale.
 
-Choisir le propriétaire selon le problème, transmettre le contexte et vérifier son résultat avant la suite. Cette compétence garde la coordination, sans réimplémenter les méthodes.
+## Stratégie et choix du parcours
 
-## Posture — l'objectif d'abord
+Lire la [carte des responsabilités](references/responsabilites.md), puis les
+[adaptations de l'environnement](references/adaptations-locales.md).
 
-- **Mesurer AVANT de juger.** Pas de « c'est le bordel » à l'oreille → **chiffrer** : nombre de
-  lignes de règles, nombre de compétences, doublons détectés, règles mal placées, cartes périmées.
-  Toute affirmation = méthode + preuve chiffrée + où la retrouver.
-- **Orchestrer, pas refaire.** Un problème de niveau, un doublon, une règle à graver, une compétence
-  à créer : chacun a sa compétence propriétaire. Ne jamais réimplémenter leur travail ici.
-- **Observer seulement, par défaut.** Au-delà de trois fichiers touchés, le diagnostic et le plan
-  se font valider. Le diagnostic est gratuit ; l'exécution se valide.
-- **Économe en contexte.** Optimiser un système, c'est souvent le **réduire**. Une optimisation qui
-  gonfle est suspecte.
-- **Les compétences s'appellent les unes les autres — la cohésion est un livrable.** Un système
-  efficace, ce sont des compétences qui se routent, jamais des silos. Toute passe vérifie et câble
-  les renvois croisés ; une compétence orpheline — qui n'appelle personne et que personne n'appelle
-  — est une dérive à corriger.
+- **Acquis déjà identifié à intégrer** : transmettre une fois à `/capitaliser`, sans diagnostic général.
+- **Demande précise sur une règle ou un parc de compétences** : confier au spécialiste approprié.
+- **Amélioration d'un système existant** : conduire les étapes ci-dessous.
+- **Création d'un système entièrement neuf** : transmettre au parcours de création disponible et sortir.
+- **Avis, audit ou plan seulement** : produire le diagnostic ou le plan ; aucune mutation.
 
----
+Une demande combinée « améliore et capitalise » est une seule intervention pilotée ici,
+avec une clôture par `/capitaliser`. Ce n'est pas deux orchestrateurs qui se rappellent.
+Les modes sont une profondeur de travail, pas des commandes supplémentaires : ciblé,
+architecture structurelle, revue complète explicitement demandée.
 
-## Les trois faux remèdes
+## Étapes
 
-Ils ont un mécanisme commun : ils consomment le problème sans le résoudre.
+### 1. Reprendre le système et l'objectif
 
-1. **Découvrabilité** : une ligne de plus dans un routeur n'est jamais le seul correctif. Agir sur
-   ce que l'utilisateur touche : nom, description, déclencheurs et nombre de portes concurrentes.
+Identifier le système, son opérateur, son état et le résultat attendu. Lire ses sources
+actuelles : carte, plan, décisions, contrats des agents et routines, données ou traces utiles.
+Réutiliser ces documents. Si la carte manque, reconstituer une vue bornée depuis les sources
+accessibles ; ne pas inventer un état ni créer un second cockpit ou un second registre.
 
-2. **Propriété** : noter un sujet dans un registre ne le place pas. L'owner doit le retrouver dans
-   son propre contrat ; s'il risque de ne jamais être invoqué, un index ou un moment de revue doit
-   le rappeler sans devenir du papier peint.
+Une compétence locale `/system` n'est pas présumée présente. Découvrir son vrai nom et ne
+l'utiliser que pour les connaissances locales, pas pour lancer une deuxième optimisation.
+Le kit et le registre de `systeme-ia`, lorsqu'ils existent, sont du contexte partagé avec la
+création ; ce ne sont ni une étape d'exploitation ni un arbitre supplémentaire.
 
-3. **Cliquet** : avant de figer un nombre, demander s'il change sans action humaine. Population ou
-   horloge mobiles exigent un arriéré nommé qui ne peut que rétrécir, et une paire de sabotages :
-   un cas neuf fautif rougit, plusieurs cas neufs conformes restent verts.
+Fixer le périmètre, les invariants et le mode autorisé. Ne pas redemander un accord déjà donné.
+Une demande d'optimisation n'autorise pas un envoi externe, une dépense, une modification de
+droits, un hook, une nouvelle routine ou un changement de production non couvert par le mandat.
 
-Une décision se rouvre avec une mesure fraîche, jamais au flair. Un remède appliqué une deuxième
-fois est d'abord la preuve que le premier n'a pas tenu.
+### 2. Établir le point de départ
 
----
+Choisir une mesure qui juge le but : résultat utile, erreurs, reprises, étapes humaines,
+délai, coût ou couverture. Distinguer observation, hypothèse causale et décision.
+Utiliser les instruments du propriétaire avant d'en improviser un autre.
 
-## La passe — 7 étapes dans l'ordre
+Documenter objet, version, périmètre, échantillon, protocole et limites. L'absence d'accès,
+un inventaire vide ou des traces insuffisantes rendent la mesure non disponible, pas zéro.
+Les volumes de règles ou de compétences sont des indicateurs de structure, pas le verdict
+sur la qualité. Une règle de longueur ne remplace pas le chargement utile.
 
-### 1 · CIBLER
+### 3. Diagnostiquer puis choisir
 
-Par défaut, prendre **la tâche en cours** et les seules dépendances pertinentes. Une demande explicitement globale porte sur tout le projet ou l'écosystème ; ne pas élargir par réflexe. Le travail concerné peut comprendre une règle, une compétence, un fichier de contexte, une mémoire, un agent ou une routine.
+Examiner la chaîne de bout en bout, pas seulement chaque pièce isolée : entrées, agents,
+transmissions, outils, état, validations et sorties. Localiser le défaut ou l'occasion de
+progrès, puis comparer les options, y compris ne rien changer.
 
-### 2 · DIAGNOSTIC — demander la carte, pas la refaire
+Pour un changement structurel, ouvrir les options, expliciter les compromis et soumettre
+le plan à une contradiction avant l'exécution. Lire le
+[parcours d'architecture](references/architecture-et-mesures.md) : avis critique, dessin,
+décision et invariants restent quatre contributions distinctes. Dans l'environnement qui
+les possède, charger tous les experts prévus, dans l'ordre ; ne pas remplacer cette exigence
+par « choisir le meilleur ». Un correctif local sans changement d'architecture n'impose pas
+ce parcours complet.
 
-Partir de ce qui prétend **déjà** répondre à la question : la carte « où vit quoi » du projet, son
-état, ses inventaires. Carte périmée ou absente → la régénérer d'abord, puis repartir de là.
-Inventorier les éléments effectivement concernés : règles, compétences, contexte, mémoire, fichiers de référence, cartes, agents, routines ou hooks. Étendre au parc complet uniquement pour une revue globale.
+Un plan déjà autorisé se déroule. Une décision nouvelle hors délégation est isolée avec son
+impact ; elle ne bloque pas les travaux indépendants déjà autorisés.
 
-### 3 · MESURER — chiffré, reproductible
+### 4. Faire réaliser les changements
 
-Mesurer le défaut avec un indicateur **adapté à la demande** : reproduction, déclenchement, fichiers concernés, données et tests. Pour une revue complète, ajouter les indicateurs de parc ci-dessous. Ne pas réduire une optimisation au nombre de lignes :
+Pour chaque changement, nommer l'objet, son propriétaire réel, l'effet attendu, les surfaces
+concernées, les droits, les preuves et le retour arrière. Une action nouvelle doit avoir un
+responsable exécutable : réutiliser un agent ou un script existant ; s'il faut en construire
+un, le faire dans le mandat plutôt qu'inventer son nom ou un poste prétendument pourvu.
 
-- Lignes par fichier de règles (coût en contexte × nombre de sessions).
-- Compétences : total, actives contre dormantes, candidates au doublon.
-- Règles mal placées — trop bas, trop haut.
-- Cartes : dernière mise à jour contre réalité (périmé = ment).
-- Rôles mélangés : une compétence qui fait deux choses.
+Transmettre le contrat d'intervention : objectif, origine, limites, sources/version, opérations
+déjà faites, résultat attendu. Les spécialistes retournent leur résultat au pilote ; ils
+n'ouvrent pas un nouveau pilotage. Choisir seulement les spécialistes utiles à cette passe :
 
-🔇 **Les descriptions RÉELLEMENT LUES.** Une compétence dont le frontmatter ne parse pas en YAML
-strict a sa `description:` **ignorée** par le harnais, qui retombe sur le titre du corps : elle
-paraît normale, elle ne se déclenche **jamais** toute seule, et **rien ne crie**.
+| Objet à modifier | Propriétaire |
+| --- | --- |
+| Règle, portée d'une consigne, hook proposé | `/clean-rules-cleanup` ; accord propre aux hooks conservé |
+| Organisation, doublons, fusion ou migration du parc | `/skill-cleaner` |
+| Création, refonte, qualité ou copie distribuée d'une compétence | `/skill-quality-guard` et ses outils disponibles |
+| Agent, outil, code, données, routine, interface | opérateur métier et constructeur réellement disponibles |
+| Consommateurs devenus faux | `/propage-systeme` ou propriétaire de la surface |
 
-```bash
-python - <<'PY'
-import io, yaml, glob, os
-bad = []
-for p in glob.glob("skills/*/SKILL.md") + glob.glob(os.path.expanduser("~/.claude/skills/*/SKILL.md")):
-    if "_archive" in p:
-        continue
-    try:
-        y = yaml.safe_load(io.open(p, encoding="utf-8").read().split("---", 2)[1])
-        assert (y.get("name") or "").strip(), "name absent ou vide"
-        assert (y.get("description") or "").strip(), "description absente ou vide"
-    except Exception as e:
-        bad.append((os.path.basename(os.path.dirname(p)), str(e).split("\n")[0][:50]))
-print(len(bad), "description(s) muette(s) :", *bad, sep="\n  ")
-PY
-```
+Préserver les travaux concurrents. Modifier le minimum nécessaire, sans quota arbitraire de
+fichiers. Une fusion conserve les capacités utiles et migre les appelants ; les anciennes
+adresses restent des alias tant que leur retrait n'est pas prouvé sûr.
 
-*Mesure inaugurale sur un parc de 215 compétences : **14 muettes**, dont la porte principale d'un
-domaine entier. Cause dans 11 cas sur 14 : un `: ` dans une valeur scalaire écrite sur une ligne →
-correctif = bloc replié `>-`.*
+### 5. Vérifier l'effet et les régressions
 
-> 🧪 **Et ce zéro-là se falsifie avant d'être cru.** Une version antérieure de cette recette ne savait
-> pas refuser une `description:` **vide** : `str(y.get("description",""))` sur une valeur YAML nulle
-> rend la chaîne `"None"` — **non vide, donc verte**. Elle attrapait le `: ` mal échappé et manquait
-> le cas le plus simple, en rendant « 0 muettes » avec l'aplomb d'une mesure.
-> **Le geste, avant de citer le chiffre** : donner à l'instrument 6 frontmatters qu'on SAIT faux
-> (deux-points nu · description vide · description d'espaces · name vide · name absent · aucun
-> frontmatter) et 2 qu'on sait sains (scalaire simple · bloc replié), et exiger **8/8**.
+Relire les cibles réellement écrites et rejouer les contrôles adaptés. Un test de contrôle
+inclut un cas acceptable et un défaut qu'il doit refuser, dans une copie isolée de l'objet.
+Vérifier les contrats entre composants : des composants sains séparément peuvent être faux
+ensemble. Comparer au point de départ avec un protocole et une population comparables.
 
-### 3bis · MESURER LA COUVERTURE — « est-ce que ce qu'on PRÉTEND est VRAI ? »
+Distinguer fichiers conformes, chaîne exécutée et résultat métier amélioré. Quand une preuve
+d'usage exige un hôte ou un accès absent, déclarer exactement ce qui n'est pas mesuré.
+Ne pas relancer un test live interdit ni provoquer un envoi réel pour obtenir un vert.
+Pour une revue complète, lire [le protocole de revue](references/passe-certifiante-regles-competences.md).
 
-Un système décrit ce qu'il fait. La question suivante est de savoir si c'est vrai : combien de ce
-qui est annoncé est réellement câblé, invoqué, mesuré. L'écart entre les deux est la vraie dette.
+### 6. Réconcilier et capitaliser une fois
 
-### 4 · TROUVER les problèmes
+Mettre à jour la carte, le plan et les descriptions devenus faux **dans leurs maisons locales**.
+Faire propager les changements autorisés, puis transmettre à `/capitaliser` les décisions,
+preuves, livrables et conséquences déjà traitées. La capitalisation vérifie les restes ; elle
+ne rejoue pas une propagation terminée et ne rappelle pas cet optimiseur automatiquement.
 
-Doublons · mauvais niveau · gonflement · cartes qui mentent · rôles mélangés · compétences orphelines
-· descriptions muettes · contrôles posés sur une grandeur qui bouge seule (faux remède n°3).
+Une contradiction nouvelle hors périmètre devient un reste avec destinataire existant,
+prochaine action et critère de clôture. Pas de boucle de routage, de tâche fantôme ou de
+nouvelle routine. Sans changement de preuve ou d'état, ne pas refaire la même opération.
 
-### 4bis · ARBITRER — règle en prose, ou CONTRÔLE mécanique ?
+## Décisions et frontières
 
-La ligne de partage : le **DÉCIDABLE** bloque, le **JUGEMENT** se montre sans trancher.
+Le nettoyage est un levier ; le but est le résultat. La cartographie est locale ; la méthode
+est commune. La création d'un système neuf reste distincte de son amélioration. Une correction
+localisée ne fusionne pas tout le parc. Les spécialistes restent directement invocables.
+Aucun seuil de lignes, de fichiers, de jetons ou de durée ne certifie une amélioration.
 
-- Une chose qu'une machine peut vérifier sans interpréter (un fichier existe, un plafond, un format)
-  → **un contrôle**, qui bloque.
-- Une chose qui demande de lire et d'apprécier → **une règle en prose**, et un rappel au bon moment.
+## Sortie et définition de fini
 
-⚠️ Un contrôle qui crie au loup finit ignoré. Tout contrôle se prouve par un **témoin positif** — il
-doit être capable de rendre NON sur une entrée qu'on sait fausse. *Un contrôle incapable de refuser
-ne vaut pas son OUI.*
+Rendre : objectif et périmètre ; changements réellement faits ; effet mesuré ou non mesuré ;
+preuves ; reste et prochain geste. Employer le verdict exact :
 
-### 5 · CONCEVOIR le correctif — ouvrir, trancher, PUIS casser
+- **PROPOSITION** : diagnostic/plan rendu, aucune exécution revendiquée.
+- **APPLIQUÉ ET MESURÉ** : changements vérifiés et critère de réussite effectivement exercé.
+- **APPLIQUÉ, EFFET NON MESURÉ** : écritures prouvées, résultat d'usage encore non vérifié.
+- **PARTIEL / BLOQUÉ** : résultat incomplet, dépendance ou autorisation manquante nommée.
+- **SANS CHANGEMENT** : pas d'amélioration justifiée, raison et périmètre observé explicites.
 
-Produire au moins trois options réellement distinctes quand l'enjeu le mérite, trancher avec ses
-arbitrages écrits, **puis attaquer son propre plan** avant de graver. Un plan qui ne peut pas
-échouer dans sa formulation n'est pas testable.
-
-### 6 · GRAVER au bon niveau
-
-Une chose vraie partout monte ; une chose vraie ici seulement reste ici. Au doute, on remonte : mal
-placer bas coûte du temps à tout recréer, un cran trop haut coûte quelques jetons.
-
-Pour une compétence existante ou une famille, entretenir l'owner en place : même squelette
-sémantique, trois pilotes représentatifs (`dev-*`, `test-*`, `router-*`) avant le lot, snapshot puis
-preuve de non-perte capable d'échouer sur une copie amputée. Créer ou refondre structurellement un
-owner reste un autre geste ; une passe d'entretien ne fabrique pas une compétence « mémoire ».
-
-### 7 · PROPAGER + RE-MESURER
-
-Corriger **toutes** les surfaces que le changement rend fausses, puis relancer la mesure de l'étape 3.
-Une optimisation non re-mesurée est une intention, pas un résultat.
-
----
-
-## Sortie
-
-Un rapport court : ce qui a été mesuré (avec les nombres et comment les reproduire), ce qui a été
-trouvé, ce qui a été décidé et pourquoi, ce qui a été écarté, ce qui reste ouvert avec son critère
-de sortie.
-
-## Anti-patterns
-
-- Juger à l'oreille et présenter ça comme un diagnostic.
-- Réimplémenter le travail d'une compétence dédiée au lieu de l'appeler.
-- Ajouter du texte là où il fallait changer un nom (faux remède n°1).
-- Ouvrir un registre là où il fallait améliorer un propriétaire (faux remède n°2).
-- Graver le nombre du jour comme plafond sans se demander s'il bouge seul (faux remède n°3).
-- Livrer une optimisation qui **gonfle** le système.
-- Conclure sans re-mesurer.
-
-## Pour aller plus loin
-
-| Sujet | Fichier |
-|---|---|
-| revue complète — règles, compétences et documentation, avec non-perte prouvée | [`references/passe-certifiante-regles-competences.md`](references/passe-certifiante-regles-competences.md) |
----
+Une compétence, un script ou une branche présents ne prouvent pas leur découverte ni leur
+exécution dans un hôte neuf. Les essais correspondants sont dans
+[evals/evals.json](evals/evals.json). Le contrôle de la structure d'orchestration est
+`scripts/verifier_orchestration.py` ; il ne simule pas un agent.
 
 <!-- dev-qa-link -->
-| Rôle | Propriétaire |
-|---|---|
-| **Dev** | cette compétence |
-| **Test** | les mesures qu'elle prescrit — poids, descriptions muettes, renvois morts — à outiller chez toi |
-| **QA** | la re-mesure après la passe : les chiffres ont-ils bougé dans le bon sens |
-| **Cadence** | `AUCUNE` par défaut — armable si tu veux une passe régulière ; une fois par trimestre suffit |
-<!-- /dev-qa-link -->
+**Production** : changements candidats conduits chez leurs propriétaires.
+**Test** : contrôles locaux et chaîne autorisée, témoins qui savent refuser.
+**QA** : résultat du système et non-régression, au bon niveau de preuve.
+**Cadence** : aucune ; ne pas créer de minuteur ou de boucle de travail par cette refonte.

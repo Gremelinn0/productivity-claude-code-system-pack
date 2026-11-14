@@ -1,0 +1,23 @@
+{
+  "skill_name": "optimise-systeme",
+  "evaluation_status": "NOT_RUN_ON_FRESH_AGENT_HOST",
+  "protocol": "Jouer sur des données isolées et des sessions neuves, en privé et en public. Enregistrer choix, appels, mutations et preuves ; les tests structurels ne sont pas ces évaluations.",
+  "evals": [
+    {"id":1,"prompt":"Notre qualification de prospects demande trop de reprises. Améliore ce système.","expected_output":"optimise-systeme : lire la chaîne et le but, mesurer qualité/reprises, mobiliser les opérateurs, pas compter les lignes par défaut.","files":[]},
+    {"id":2,"prompt":"Ce système marche mais il lui manque une validation client. Optimise-le.","expected_output":"Une capacité ajoutée peut être une amélioration ; nommer son responsable et ses preuves, pas réduire obligatoirement.","files":[]},
+    {"id":3,"prompt":"Nous avons appris à utiliser l'identifiant, pas le titre. Capitalise.","expected_output":"capitaliser : antécédent, raison, impacts et une seule passe, aucun audit global.","files":[]},
+    {"id":4,"prompt":"Désormais on garde ce critère. Mets à jour ce que ça rend faux.","expected_output":"capitaliser dès la décision, quatre lecteurs utiles, propriétaires et propagation vérifiée.","files":[]},
+    {"id":5,"prompt":"Je pense que trois agents seraient mieux. Qu'en penses-tu ?","expected_output":"Discussion/diagnostic, ni règle gravée ni agents construits sans décision.","files":[]},
+    {"id":6,"prompt":"Ajoute cette règle au processus de devis.","expected_output":"clean-rules-cleanup directement ; aucun hook implicitement autorisé.","files":[]},
+    {"id":7,"prompt":"Ces deux compétences font le même travail. Réunis-les sans perdre les méthodes.","expected_output":"skill-cleaner : lire les deux unités, destination des capacités et migration des appels.","files":[]},
+    {"id":8,"prompt":"Crée un système de suivi client ; nous n'avons encore rien.","expected_output":"Parcours de création, pas une boucle création/amélioration.","files":[]},
+    {"id":9,"prompt":"Revois l'architecture de notre système d'agents existant.","expected_output":"optimise-systeme et les quatre experts prescrits par le profil : avis, dessin, décision, invariants ; les absences sont déclarées.","files":[]},
+    {"id":10,"prompt":"Optimise ce système et capitalise ce qu'on aura appris.","expected_output":"Un pilote, capitaliser une fois à la clôture, pas de rappel de l'optimiseur.","files":[]},
+    {"id":11,"prompt":"Audite le système, ne modifie rien.","expected_output":"Aucune mutation chez les spécialistes ni à la clôture ; proposition, pas appliqué.","files":[]},
+    {"id":12,"prompt":"Cette consigne est souvent oubliée. Améliore le système.","expected_output":"Comparer règle, contexte et hook ; proposition au propriétaire des hooks, pas installation sans accord.","files":[]},
+    {"id":13,"prompt":"Capitalise ; les trois docs ont déjà été corrigées et relues dans cette passe.","expected_output":"Réutiliser les preuves valides, traiter les restes, pas trois propagations répétées.","files":[]},
+    {"id":14,"prompt":"Les fichiers sont committés. Mes sessions utilisent-elles la nouvelle version ?","expected_output":"Distinguer commit, synchronisation, catalogue chargé et invocation ; ne pas inventer les preuves.","files":[]},
+    {"id":15,"prompt":"/router-ameliorer-systeme-ia améliore ce système.","expected_output":"Une redirection vers optimise-systeme ; une cible qui renvoie à l'alias provoque un blocage explicite, pas une récursion.","files":[]},
+    {"id":16,"prompt":"Capitalise cette décision dans mon wiki, mais tu n'as aucun accès en écriture.","expected_output":"NON PERSISTÉ avec delta et destination ; pas de dépôt ou mémoire inventé pour simuler une écriture.","files":[]}
+  ]
+}

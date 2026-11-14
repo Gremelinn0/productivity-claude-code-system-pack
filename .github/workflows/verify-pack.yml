@@ -26,7 +26,13 @@ jobs:
         run: python scripts/verifier_pack.py
       - name: Capitalisation - preuves mécaniques
         run: python -m unittest discover -s skills/capitaliser/tests -v
+      - name: Orchestration - témoins et contrats
+        run: python -m unittest discover -s skills/optimise-systeme/tests -v
+      - name: Graphe de la famille et alias
+        run: python skills/optimise-systeme/scripts/verifier_orchestration.py --root skills
       - name: Capitalisation - contrat documentaire
         run: python skills/capitaliser/scripts/verifier_contrat.py skills/capitaliser
+      - name: Optimisation - contrat documentaire
+        run: python skills/capitaliser/scripts/verifier_contrat.py skills/optimise-systeme
       - name: Inventaire du pack
         run: python skills/skill-cleaner/scripts/inventaire.py skills --json > /tmp/skills-inventaire.json

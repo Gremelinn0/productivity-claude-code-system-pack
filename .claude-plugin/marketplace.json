@@ -5,14 +5,14 @@
     "name": "Florent Maisoncelle"
   },
   "metadata": {
-    "description": "Entretenir le système d'un agent — ses règles, ses compétences, sa documentation — au lieu de le laisser gonfler.",
+    "description": "Améliorer le résultat d'un système IA et intégrer ses acquis : deux entrées principales et quatre spécialistes.",
     "version": "0.4.0"
   },
   "plugins": [
     {
       "name": "claude-code-system-pack",
       "source": "./",
-      "description": "Cinq gestes et une porte : capitaliser une leçon, mesurer le système, écrire une règle qui porte son contrôle, contrôler une compétence, propager un changement partout ; /router-entretien-systeme dit lequel appeler pour quel symptôme.",
+      "description": "Optimise-systeme pilote l'amélioration ; capitaliser conserve les acquis et ferme leurs conséquences. Les règles, le parc, la qualité et la propagation gardent leurs spécialistes. L'ancien routeur reste un alias, pas une troisième méthode.",
       "category": "productivity"
     }
   ]
